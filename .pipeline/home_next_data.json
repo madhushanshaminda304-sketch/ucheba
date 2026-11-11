@@ -1,0 +1,2594 @@
+{
+  "props": {
+    "pageProps": {
+      "isTouch": false,
+      "initialState": {
+        "core": {
+          "isLayout": true,
+          "isTouch": false,
+          "changedId": 0,
+          "layout": null,
+          "programTypes": null
+        },
+        "eventsSearch": {
+          "entity": {
+            "total": 219,
+            "items": [
+              {
+                "id": 18569,
+                "name": "День открытых дверей в Новокузнецком филиале ИТ колледжа TOП",
+                "startAt": "2026-11-10T14:00:00+0300",
+                "hasBranding": false,
+                "endAt": null,
+                "finishAt": "2026-11-11T00:00:00+0300",
+                "isFinished": false,
+                "formats": [
+                  {
+                    "value": "offline",
+                    "name": "Офлайн"
+                  }
+                ],
+                "description": "День открытых дверей в ИТ колледже «Академия TOП» в г. Новокузнецке.",
+                "streamUrl": null,
+                "directVkStreamUrl": null,
+                "externalUrl": "",
+                "institution": {
+                  "id": 107913,
+                  "name": "Новокузнецкий филиал IT колледжа TOП",
+                  "logo": {
+                    "fallbackUrl": "https://static.ucheba.ru/pix/logo_cache/107913.upto100x100.png",
+                    "webp": "https://static.ucheba.ru/pix/logo_cache/107913.upto100x100.webp"
+                  },
+                  "abbreviation": "Новокузнецкий филиал IT колледжа TOП",
+                  "location": {
+                    "id": 159,
+                    "name": "Новокузнецк"
+                  }
+                },
+                "rubric": {
+                  "id": 2,
+                  "name": "День открытых дверей"
+                },
+                "addresses": [
+                  {
+                    "address": "г. Новокузнецк, пр-т Металлургов, д. 21",
+                    "point": {
+                      "longitude": 53.75397,
+                      "latitude": 87.11752
+                    },
+                    "comment": ""
+                  }
+                ],
+                "withExternalRegistration": false,
+                "programTypes": [
+                  {
+                    "value": 1001,
+                    "name": "среднее профессиональное"
+                  }
+                ],
+                "exam": null,
+                "chatBotScenario": {
+                  "id": 26,
+                  "name": "Завершена регистрация на день открытых дверей"
+                },
+                "selectedSessions": null,
+                "nextDaySessions": [],
+                "isAutoWebinar": false
+              },
+              {
+                "id": 18330,
+                "name": "Один день в РЭШ. Лекции: Корпоративные финансы (ФИБ) и Микроэкономика (ИИФТ)",
+                "startAt": "2026-11-10T15:30:00+0300",
+                "hasBranding": false,
+                "endAt": "2026-11-10T18:45:00+0300",
+                "finishAt": "2026-11-10T18:45:00+0300",
+                "isFinished": false,
+                "formats": [
+                  {
+                    "value": "offline",
+                    "name": "Офлайн"
+                  }
+                ],
+                "description": "С 29 октября по 10 ноября Российская экономическая школа приглашает студентов старших курсов, а также выпускников бакалавриата и специалитета принять участие в цикле мероприятий «Один день в РЭШ». Лекции: Корпоративные финансы (ФИБ) и Микроэкономика (ИИФТ).",
+                "streamUrl": null,
+                "directVkStreamUrl": null,
+                "externalUrl": "https://events.nes.ru/events/priglashaem-abiturientov-provesti-odin-den-v-resh/?lang=ru",
+                "institution": {
+                  "id": 9423,
+                  "name": "РЭШ",
+                  "logo": {
+                    "fallbackUrl": "https://static.ucheba.ru/pix/logo_cache/9423.upto100x100.webp",
+                    "webp": "https://static.ucheba.ru/pix/logo_cache/9423.upto100x100.webp"
+                  },
+                  "abbreviation": "РЭШ",
+                  "location": {
+                    "id": 3,
+                    "name": "Москва"
+                  }
+                },
+                "rubric": {
+                  "id": 2,
+                  "name": "День открытых дверей"
+                },
+                "addresses": [
+                  {
+                    "address": "г. Москва, ул. Нобеля, д. 3",
+                    "point": {
+                      "longitude": 55.684503,
+                      "latitude": 37.340433
+                    },
+                    "comment": "ауд. 401 (ФИБ), 341 (ИИФТ)"
+                  }
+                ],
+                "withExternalRegistration": false,
+                "programTypes": [
+                  {
+                    "value": 1002,
+                    "name": "высшее"
+                  }
+                ],
+                "exam": null,
+                "chatBotScenario": {
+                  "id": 26,
+                  "name": "Завершена регистрация на день открытых дверей"
+                },
+                "selectedSessions": null,
+                "nextDaySessions": [],
+                "isAutoWebinar": false
+              },
+              {
+                "id": 18436,
+                "name": "День открытых дверей магистерской программы «Цифровое государство (стратегическое развитие информационного общества)» ИГСУ РАНХиГС",
+                "startAt": "2026-11-10T17:00:00+0300",
+                "hasBranding": false,
+                "endAt": null,
+                "finishAt": "2026-11-11T00:00:00+0300",
+                "isFinished": false,
+                "formats": [
+                  {
+                    "value": "online",
+                    "name": "Онлайн"
+                  }
+                ],
+                "description": "Факультет государственного и муниципального управления ИГСУ Президентской Академии приглашает абитуриентов на День открытых дверей магистерской программы «Цифровое государство (стратегическое развитие информационного общества)» по направлению подготовки 38.04.04 ГМУ.",
+                "streamUrl": "",
+                "directVkStreamUrl": "",
+                "externalUrl": "",
+                "institution": {
+                  "id": 17548,
+                  "name": "Институт государственной службы и управления РАНХиГС",
+                  "logo": {
+                    "fallbackUrl": "https://static.ucheba.ru/pix/logo_cache/17548.upto100x100.png",
+                    "webp": "https://static.ucheba.ru/pix/logo_cache/17548.upto100x100.webp"
+                  },
+                  "abbreviation": "Институт государственной службы и управления РАНХиГС",
+                  "location": {
+                    "id": 3,
+                    "name": "Москва"
+                  }
+                },
+                "rubric": {
+                  "id": 2,
+                  "name": "День открытых дверей"
+                },
+                "addresses": [],
+                "withExternalRegistration": false,
+                "programTypes": [
+                  {
+                    "value": 1002,
+                    "name": "высшее"
+                  },
+                  {
+                    "value": 3,
+                    "name": "магистратура"
+                  }
+                ],
+                "exam": null,
+                "chatBotScenario": {
+                  "id": 26,
+                  "name": "Завершена регистрация на день открытых дверей"
+                },
+                "selectedSessions": null,
+                "nextDaySessions": [],
+                "isAutoWebinar": false
+              },
+              {
+                "id": 18157,
+                "name": "Колледж или 10 класс. Что выбрать?",
+                "startAt": "2026-11-10T19:00:00+0300",
+                "hasBranding": true,
+                "endAt": "2026-11-10T20:30:00+0300",
+                "finishAt": "2026-11-10T20:30:00+0300",
+                "isFinished": false,
+                "formats": [
+                  {
+                    "value": "online",
+                    "name": "Онлайн"
+                  }
+                ],
+                "description": "Онлайн-конференция для школьников 8-9 классов и их родителей, которые заботятся о будущем и хотят заранее выбрать оптимальную образовательную стратегию. Вы получите чёткий план действий на 1-2 года и избежите ошибок, которые совершают 90% родителей.",
+                "streamUrl": "https://student.ucheba.ru/webinars/127705/sessions/130419/view",
+                "directVkStreamUrl": "",
+                "externalUrl": "",
+                "institution": null,
+                "rubric": {
+                  "id": 38,
+                  "name": "Вебинар ОГЭ"
+                },
+                "addresses": [],
+                "withExternalRegistration": false,
+                "programTypes": [
+                  {
+                    "value": 1002,
+                    "name": "высшее"
+                  }
+                ],
+                "exam": null,
+                "chatBotScenario": {
+                  "id": 10383,
+                  "name": "Подарок гайд «Профессии будущего» при регистрации на мероприятие_10.11"
+                },
+                "selectedSessions": null,
+                "nextDaySessions": [],
+                "isAutoWebinar": false
+              },
+              {
+                "id": 17991,
+                "name": "День открытых дверей в ПК № 8 им. И.Ф. Павлова, Дмитровское отделение",
+                "startAt": "2026-11-11T16:00:00+0300",
+                "hasBranding": false,
+                "endAt": "2026-11-11T18:00:00+0300",
+                "finishAt": "2026-11-11T18:00:00+0300",
+                "isFinished": false,
+                "formats": [
+                  {
+                    "value": "offline",
+                    "name": "Офлайн"
+                  }
+                ],
+                "description": "Хотите узнать об автоматизации и роботизации? А, может, давно мечтали поработать с паяльной станцией? Приходите в Политехнический колледж № 8 на День открытых дверей!",
+                "streamUrl": null,
+                "directVkStreamUrl": null,
+                "externalUrl": "https://school.mos.ru/mcrpo/portal/dod/#66720",
+                "institution": {
+                  "id": 10942,
+                  "name": "ПК № 8 им. И.Ф. Павлова",
+                  "logo": {
+                    "fallbackUrl": "https://static.ucheba.ru/pix/logo_cache/10942.upto100x100.webp",
+                    "webp": "https://static.ucheba.ru/pix/logo_cache/10942.upto100x100.webp"
+                  },
+                  "abbreviation": "ПК № 8 им. И.Ф. Павлова",
+                  "location": {
+                    "id": 3,
+                    "name": "Москва"
+                  }
+                },
+                "rubric": {
+                  "id": 2,
+                  "name": "День открытых дверей"
+                },
+                "addresses": [
+                  {
+                    "address": "г. Москва, Дмитровское ш., д. 110А",
+                    "point": {
+                      "longitude": 55.887852,
+                      "latitude": 37.544216
+                    },
+                    "comment": "м. «Яхромская»"
+                  }
+                ],
+                "withExternalRegistration": false,
+                "programTypes": [
+                  {
+                    "value": 1001,
+                    "name": "среднее профессиональное"
+                  }
+                ],
+                "exam": null,
+                "chatBotScenario": {
+                  "id": 26,
+                  "name": "Завершена регистрация на день открытых дверей"
+                },
+                "selectedSessions": null,
+                "nextDaySessions": [],
+                "isAutoWebinar": false
+              }
+            ],
+            "facets": {
+              "locations": [
+                {
+                  "value": 3,
+                  "name": "Москва",
+                  "count": 101
+                },
+                {
+                  "value": 4,
+                  "name": "Санкт-Петербург",
+                  "count": 5
+                },
+                {
+                  "value": 2,
+                  "name": "Зеленоград",
+                  "count": 3
+                },
+                {
+                  "value": 248,
+                  "name": "Омск",
+                  "count": 3
+                },
+                {
+                  "value": 1207,
+                  "name": "Балашиха",
+                  "count": 3
+                },
+                {
+                  "value": 1777,
+                  "name": "Колпино",
+                  "count": 3
+                },
+                {
+                  "value": 19,
+                  "name": "Армавир",
+                  "count": 2
+                },
+                {
+                  "value": 328,
+                  "name": "Екатеринбург",
+                  "count": 2
+                },
+                {
+                  "value": 362,
+                  "name": "Смоленск",
+                  "count": 2
+                },
+                {
+                  "value": 395,
+                  "name": "Челябинск",
+                  "count": 2
+                },
+                {
+                  "value": 479,
+                  "name": "Владикавказ",
+                  "count": 2
+                },
+                {
+                  "value": 702,
+                  "name": "Ейск",
+                  "count": 2
+                },
+                {
+                  "value": 7,
+                  "name": "Барнаул",
+                  "count": 1
+                },
+                {
+                  "value": 10,
+                  "name": "Бийск",
+                  "count": 1
+                },
+                {
+                  "value": 18,
+                  "name": "Краснодар",
+                  "count": 1
+                },
+                {
+                  "value": 20,
+                  "name": "Геленджик",
+                  "count": 1
+                },
+                {
+                  "value": 22,
+                  "name": "Новороссийск",
+                  "count": 1
+                },
+                {
+                  "value": 23,
+                  "name": "Сочи",
+                  "count": 1
+                },
+                {
+                  "value": 41,
+                  "name": "Владивосток",
+                  "count": 1
+                },
+                {
+                  "value": 44,
+                  "name": "Находка",
+                  "count": 1
+                },
+                {
+                  "value": 51,
+                  "name": "Уссурийск",
+                  "count": 1
+                },
+                {
+                  "value": 85,
+                  "name": "Астрахань",
+                  "count": 1
+                },
+                {
+                  "value": 98,
+                  "name": "Владимир",
+                  "count": 1
+                },
+                {
+                  "value": 104,
+                  "name": "Волгоград",
+                  "count": 1
+                },
+                {
+                  "value": 112,
+                  "name": "Череповец",
+                  "count": 1
+                },
+                {
+                  "value": 118,
+                  "name": "Иваново",
+                  "count": 1
+                },
+                {
+                  "value": 122,
+                  "name": "Ангарск",
+                  "count": 1
+                },
+                {
+                  "value": 123,
+                  "name": "Братск",
+                  "count": 1
+                },
+                {
+                  "value": 136,
+                  "name": "Калининград",
+                  "count": 1
+                },
+                {
+                  "value": 143,
+                  "name": "Калуга",
+                  "count": 1
+                },
+                {
+                  "value": 144,
+                  "name": "Обнинск",
+                  "count": 1
+                },
+                {
+                  "value": 156,
+                  "name": "Кемерово",
+                  "count": 1
+                },
+                {
+                  "value": 159,
+                  "name": "Новокузнецк",
+                  "count": 1
+                },
+                {
+                  "value": 165,
+                  "name": "Киров",
+                  "count": 1
+                },
+                {
+                  "value": 176,
+                  "name": "Липецк",
+                  "count": 1
+                },
+                {
+                  "value": 181,
+                  "name": "Домодедово",
+                  "count": 1
+                },
+                {
+                  "value": 185,
+                  "name": "Жуковский",
+                  "count": 1
+                },
+                {
+                  "value": 193,
+                  "name": "Лыткарино",
+                  "count": 1
+                },
+                {
+                  "value": 204,
+                  "name": "Подольск",
+                  "count": 1
+                },
+                {
+                  "value": 207,
+                  "name": "Серпухов",
+                  "count": 1
+                },
+                {
+                  "value": 209,
+                  "name": "Химки",
+                  "count": 1
+                },
+                {
+                  "value": 231,
+                  "name": "Нижний Новгород",
+                  "count": 1
+                },
+                {
+                  "value": 232,
+                  "name": "Дзержинск",
+                  "count": 1
+                },
+                {
+                  "value": 260,
+                  "name": "Орел",
+                  "count": 1
+                },
+                {
+                  "value": 264,
+                  "name": "Пенза",
+                  "count": 1
+                },
+                {
+                  "value": 281,
+                  "name": "Псков",
+                  "count": 1
+                },
+                {
+                  "value": 284,
+                  "name": "Ростов-на-Дону",
+                  "count": 1
+                },
+                {
+                  "value": 286,
+                  "name": "Волгодонск",
+                  "count": 1
+                },
+                {
+                  "value": 294,
+                  "name": "Шахты",
+                  "count": 1
+                },
+                {
+                  "value": 297,
+                  "name": "Рязань",
+                  "count": 1
+                },
+                {
+                  "value": 299,
+                  "name": "Самара",
+                  "count": 1
+                },
+                {
+                  "value": 305,
+                  "name": "Тольятти",
+                  "count": 1
+                },
+                {
+                  "value": 310,
+                  "name": "Саратов",
+                  "count": 1
+                },
+                {
+                  "value": 313,
+                  "name": "Балаково",
+                  "count": 1
+                },
+                {
+                  "value": 348,
+                  "name": "Нижний Тагил",
+                  "count": 1
+                },
+                {
+                  "value": 379,
+                  "name": "Томск",
+                  "count": 1
+                },
+                {
+                  "value": 387,
+                  "name": "Тюмень",
+                  "count": 1
+                },
+                {
+                  "value": 390,
+                  "name": "Ульяновск",
+                  "count": 1
+                },
+                {
+                  "value": 402,
+                  "name": "Миасс",
+                  "count": 1
+                },
+                {
+                  "value": 429,
+                  "name": "Улан-Удэ",
+                  "count": 1
+                },
+                {
+                  "value": 434,
+                  "name": "Махачкала",
+                  "count": 1
+                },
+                {
+                  "value": 470,
+                  "name": "Йошкар-Ола",
+                  "count": 1
+                },
+                {
+                  "value": 493,
+                  "name": "Абакан",
+                  "count": 1
+                },
+                {
+                  "value": 512,
+                  "name": "Сургут",
+                  "count": 1
+                },
+                {
+                  "value": 527,
+                  "name": "Ноябрьск",
+                  "count": 1
+                },
+                {
+                  "value": 712,
+                  "name": "Лабинск",
+                  "count": 1
+                },
+                {
+                  "value": 1159,
+                  "name": "Выборг",
+                  "count": 1
+                },
+                {
+                  "value": 1229,
+                  "name": "Красногорск",
+                  "count": 1
+                },
+                {
+                  "value": 1241,
+                  "name": "Наро-Фоминск",
+                  "count": 1
+                },
+                {
+                  "value": 1267,
+                  "name": "Павловский Посад",
+                  "count": 1
+                },
+                {
+                  "value": 1269,
+                  "name": "Пушкино",
+                  "count": 1
+                },
+                {
+                  "value": 1783,
+                  "name": "Пушкин",
+                  "count": 1
+                },
+                {
+                  "value": 1963,
+                  "name": "Севастополь",
+                  "count": 1
+                },
+                {
+                  "value": 2192,
+                  "name": "Евпатория",
+                  "count": 1
+                },
+                {
+                  "value": 2204,
+                  "name": "Симферополь",
+                  "count": 1
+                }
+              ],
+              "formats": [
+                {
+                  "value": "offline",
+                  "name": "Офлайн",
+                  "count": 176
+                },
+                {
+                  "value": "online",
+                  "name": "Онлайн",
+                  "count": 49
+                }
+              ],
+              "tags": [
+                {
+                  "value": 37,
+                  "name": "информационные технологии",
+                  "count": 128
+                },
+                {
+                  "value": 425,
+                  "name": "управление и экономика",
+                  "count": 84
+                },
+                {
+                  "value": 77,
+                  "name": "медиа, дизайн и архитектура",
+                  "count": 76
+                },
+                {
+                  "value": 320,
+                  "name": "гуманитарные и социальные науки",
+                  "count": 60
+                },
+                {
+                  "value": 38,
+                  "name": "программирование",
+                  "count": 54
+                },
+                {
+                  "value": 11,
+                  "name": "дизайн",
+                  "count": 41
+                },
+                {
+                  "value": 125,
+                  "name": "техника и технологии",
+                  "count": 41
+                },
+                {
+                  "value": 153,
+                  "name": "экономика и финансы",
+                  "count": 40
+                },
+                {
+                  "value": 138,
+                  "name": "управление",
+                  "count": 34
+                },
+                {
+                  "value": 171,
+                  "name": "право",
+                  "count": 31
+                },
+                {
+                  "value": 74,
+                  "name": "маркетинг",
+                  "count": 30
+                },
+                {
+                  "value": 13,
+                  "name": "графический дизайн",
+                  "count": 29
+                },
+                {
+                  "value": 109,
+                  "name": "медиа и коммуникации",
+                  "count": 29
+                },
+                {
+                  "value": 266,
+                  "name": "экономика",
+                  "count": 26
+                },
+                {
+                  "value": 353,
+                  "name": "информатика",
+                  "count": 20
+                },
+                {
+                  "value": 434,
+                  "name": "точные и естественные науки",
+                  "count": 20
+                },
+                {
+                  "value": 76,
+                  "name": "реклама и PR",
+                  "count": 19
+                },
+                {
+                  "value": 50,
+                  "name": "искусство и творчество",
+                  "count": 18
+                },
+                {
+                  "value": 439,
+                  "name": "машиностроение и робототехника",
+                  "count": 18
+                },
+                {
+                  "value": 8,
+                  "name": "безопасность и военное дело",
+                  "count": 16
+                },
+                {
+                  "value": 48,
+                  "name": "компьютерная графика",
+                  "count": 15
+                },
+                {
+                  "value": 328,
+                  "name": "анализ данных",
+                  "count": 15
+                },
+                {
+                  "value": 78,
+                  "name": "журналистика",
+                  "count": 13
+                },
+                {
+                  "value": 91,
+                  "name": "образование и психология",
+                  "count": 13
+                },
+                {
+                  "value": 172,
+                  "name": "юриспруденция",
+                  "count": 13
+                },
+                {
+                  "value": 308,
+                  "name": "безопасность",
+                  "count": 13
+                },
+                {
+                  "value": 437,
+                  "name": "транспорт",
+                  "count": 13
+                },
+                {
+                  "value": 40,
+                  "name": "информационная безопасность",
+                  "count": 12
+                },
+                {
+                  "value": 82,
+                  "name": "медицина и здравоохранение",
+                  "count": 12
+                },
+                {
+                  "value": 359,
+                  "name": "экономическая безопасность",
+                  "count": 12
+                },
+                {
+                  "value": 18,
+                  "name": "дизайн интерьера",
+                  "count": 11
+                },
+                {
+                  "value": 348,
+                  "name": "туризм и гостеприимство",
+                  "count": 11
+                },
+                {
+                  "value": 364,
+                  "name": "Python",
+                  "count": 11
+                },
+                {
+                  "value": 169,
+                  "name": "машиностроение",
+                  "count": 10
+                },
+                {
+                  "value": 350,
+                  "name": "цифровой дизайн",
+                  "count": 10
+                },
+                {
+                  "value": 46,
+                  "name": "интернет-маркетинг",
+                  "count": 9
+                },
+                {
+                  "value": 287,
+                  "name": "биология и биотехнологии",
+                  "count": 9
+                },
+                {
+                  "value": 366,
+                  "name": "JavaScript",
+                  "count": 9
+                },
+                {
+                  "value": 3,
+                  "name": "архитектура и урбанистика",
+                  "count": 8
+                },
+                {
+                  "value": 12,
+                  "name": "веб-дизайн",
+                  "count": 8
+                },
+                {
+                  "value": 47,
+                  "name": "мобильная разработка",
+                  "count": 8
+                },
+                {
+                  "value": 56,
+                  "name": "фотография",
+                  "count": 8
+                },
+                {
+                  "value": 326,
+                  "name": "геймдизайн",
+                  "count": 8
+                },
+                {
+                  "value": 4,
+                  "name": "архитектура",
+                  "count": 7
+                },
+                {
+                  "value": 27,
+                  "name": "биотехнологии",
+                  "count": 7
+                },
+                {
+                  "value": 44,
+                  "name": "ИТ-менеджмент",
+                  "count": 7
+                },
+                {
+                  "value": 70,
+                  "name": "филология и лингвистика",
+                  "count": 7
+                },
+                {
+                  "value": 101,
+                  "name": "развитие личности",
+                  "count": 7
+                },
+                {
+                  "value": 116,
+                  "name": "сфера услуг",
+                  "count": 7
+                },
+                {
+                  "value": 362,
+                  "name": "Photoshop",
+                  "count": 7
+                },
+                {
+                  "value": 365,
+                  "name": "Java",
+                  "count": 7
+                },
+                {
+                  "value": 371,
+                  "name": "3ds max",
+                  "count": 7
+                },
+                {
+                  "value": 36,
+                  "name": "иностранные языки",
+                  "count": 6
+                },
+                {
+                  "value": 45,
+                  "name": "HTML",
+                  "count": 6
+                },
+                {
+                  "value": 304,
+                  "name": "химические технологии",
+                  "count": 6
+                },
+                {
+                  "value": 311,
+                  "name": "управление качеством",
+                  "count": 6
+                },
+                {
+                  "value": 322,
+                  "name": "UX/UI дизайн",
+                  "count": 6
+                },
+                {
+                  "value": 324,
+                  "name": "дизайн мобильных приложений",
+                  "count": 6
+                },
+                {
+                  "value": 330,
+                  "name": "разработка игр",
+                  "count": 6
+                },
+                {
+                  "value": 363,
+                  "name": "Illustrator",
+                  "count": 6
+                },
+                {
+                  "value": 375,
+                  "name": "компьютерная безопасность",
+                  "count": 6
+                },
+                {
+                  "value": 384,
+                  "name": "SMM",
+                  "count": 6
+                },
+                {
+                  "value": 405,
+                  "name": "Adobe Indesign",
+                  "count": 6
+                },
+                {
+                  "value": 436,
+                  "name": "химия и химические технологии",
+                  "count": 6
+                },
+                {
+                  "value": 22,
+                  "name": "биология",
+                  "count": 5
+                },
+                {
+                  "value": 41,
+                  "name": "системное администрирование",
+                  "count": 5
+                },
+                {
+                  "value": 83,
+                  "name": "лечебное дело",
+                  "count": 5
+                },
+                {
+                  "value": 90,
+                  "name": "ветеринария",
+                  "count": 5
+                },
+                {
+                  "value": 92,
+                  "name": "педагогика",
+                  "count": 5
+                },
+                {
+                  "value": 94,
+                  "name": "политология и социология",
+                  "count": 5
+                },
+                {
+                  "value": 129,
+                  "name": "пищевое производство",
+                  "count": 5
+                },
+                {
+                  "value": 139,
+                  "name": "менеджмент организации",
+                  "count": 5
+                },
+                {
+                  "value": 150,
+                  "name": "экология и защита окружающей среды",
+                  "count": 5
+                },
+                {
+                  "value": 265,
+                  "name": "кулинария и кондитерское дело",
+                  "count": 5
+                },
+                {
+                  "value": 438,
+                  "name": "технологии материалов",
+                  "count": 5
+                },
+                {
+                  "value": 88,
+                  "name": "психология",
+                  "count": 4
+                },
+                {
+                  "value": 95,
+                  "name": "государственное и муниципальное управление",
+                  "count": 4
+                },
+                {
+                  "value": 98,
+                  "name": "политология",
+                  "count": 4
+                },
+                {
+                  "value": 133,
+                  "name": "электроника и приборостроение",
+                  "count": 4
+                },
+                {
+                  "value": 140,
+                  "name": "управление персоналом",
+                  "count": 4
+                },
+                {
+                  "value": 173,
+                  "name": "таможенное дело",
+                  "count": 4
+                },
+                {
+                  "value": 325,
+                  "name": "motion-дизайн",
+                  "count": 4
+                },
+                {
+                  "value": 344,
+                  "name": "PHP",
+                  "count": 4
+                },
+                {
+                  "value": 71,
+                  "name": "лингвистика",
+                  "count": 3
+                },
+                {
+                  "value": 100,
+                  "name": "социология",
+                  "count": 3
+                },
+                {
+                  "value": 317,
+                  "name": "нанотехнологии",
+                  "count": 3
+                },
+                {
+                  "value": 346,
+                  "name": "финансы",
+                  "count": 3
+                },
+                {
+                  "value": 347,
+                  "name": "коммерция",
+                  "count": 3
+                },
+                {
+                  "value": 5,
+                  "name": "строительство",
+                  "count": 2
+                },
+                {
+                  "value": 60,
+                  "name": "декоративно-прикладное творчество",
+                  "count": 2
+                },
+                {
+                  "value": 72,
+                  "name": "филология",
+                  "count": 2
+                },
+                {
+                  "value": 110,
+                  "name": "физическая культура и спорт",
+                  "count": 2
+                },
+                {
+                  "value": 119,
+                  "name": "туризм",
+                  "count": 2
+                },
+                {
+                  "value": 131,
+                  "name": "технологии полиграфии и упаковки",
+                  "count": 2
+                },
+                {
+                  "value": 144,
+                  "name": "математика и физика",
+                  "count": 2
+                },
+                {
+                  "value": 148,
+                  "name": "геодезия и землеустройство",
+                  "count": 2
+                },
+                {
+                  "value": 160,
+                  "name": "торговое дело",
+                  "count": 2
+                },
+                {
+                  "value": 168,
+                  "name": "энергетика",
+                  "count": 2
+                },
+                {
+                  "value": 329,
+                  "name": "SQL",
+                  "count": 2
+                },
+                {
+                  "value": 373,
+                  "name": "SEO",
+                  "count": 2
+                }
+              ]
+            }
+          },
+          "loading": "fulfilled",
+          "currentRequestId": null,
+          "error": null
+        },
+        "header": {
+          "color": "white",
+          "fade": "navy",
+          "width": "auto",
+          "isShowNavigation": true,
+          "isShowHeader": true,
+          "changedId": 1794320971253,
+          "isShowPhone": true,
+          "variant": "1"
+        },
+        "footer": {
+          "color": "black",
+          "changedId": 1794320971254,
+          "isShowFooter": true,
+          "navLinks": null,
+          "isShowMessengers": true
+        },
+        "institutionsRankingsStats": {
+          "ids": [
+            4,
+            19,
+            10,
+            12
+          ],
+          "entities": {
+            "4": {
+              "id": 4,
+              "year": 2026,
+              "name": "QS World University Rankings",
+              "logo": {
+                "fallbackUrl": "https://static.ucheba.ru/pix/logo_cache/4_230314111002.upto100x100.png",
+                "webp": "https://static.ucheba.ru/pix/logo_cache/4_230314111002.upto100x100.webp"
+              },
+              "institutionCount": 64,
+              "children": [
+                {
+                  "id": 6,
+                  "year": 2026,
+                  "name": "Материаловедение",
+                  "logo": null,
+                  "institutionCount": 12,
+                  "children": []
+                }
+              ]
+            },
+            "10": {
+              "id": 10,
+              "year": 2025,
+              "name": "ShanghaiRanking’s: Academic Ranking of World Universities",
+              "logo": {
+                "fallbackUrl": "https://static.ucheba.ru/pix/logo_cache/10_230314110724.upto100x100.png",
+                "webp": "https://static.ucheba.ru/pix/logo_cache/10_230314110724.upto100x100.webp"
+              },
+              "institutionCount": 21,
+              "children": [
+                {
+                  "id": 11,
+                  "year": 2025,
+                  "name": "Металлургия",
+                  "logo": null,
+                  "institutionCount": 7,
+                  "children": []
+                },
+                {
+                  "id": 50,
+                  "year": 2025,
+                  "name": "Деловое администрирование",
+                  "logo": null,
+                  "institutionCount": 1,
+                  "children": []
+                },
+                {
+                  "id": 49,
+                  "year": 2025,
+                  "name": "Менеджмент",
+                  "logo": null,
+                  "institutionCount": 2,
+                  "children": []
+                },
+                {
+                  "id": 48,
+                  "year": 2025,
+                  "name": "Экономика",
+                  "logo": null,
+                  "institutionCount": 2,
+                  "children": []
+                },
+                {
+                  "id": 47,
+                  "year": 2025,
+                  "name": "Политические науки",
+                  "logo": null,
+                  "institutionCount": 1,
+                  "children": []
+                },
+                {
+                  "id": 46,
+                  "year": 2025,
+                  "name": "Математика",
+                  "logo": null,
+                  "institutionCount": 8,
+                  "children": []
+                },
+                {
+                  "id": 45,
+                  "year": 2025,
+                  "name": "Социология",
+                  "logo": null,
+                  "institutionCount": 1,
+                  "children": []
+                },
+                {
+                  "id": 67,
+                  "year": 2025,
+                  "name": "Химия",
+                  "logo": null,
+                  "institutionCount": 1,
+                  "children": []
+                },
+                {
+                  "id": 66,
+                  "year": 2025,
+                  "name": "Физика",
+                  "logo": null,
+                  "institutionCount": 7,
+                  "children": []
+                },
+                {
+                  "id": 74,
+                  "year": 2025,
+                  "name": "Энергетика",
+                  "logo": null,
+                  "institutionCount": 1,
+                  "children": []
+                },
+                {
+                  "id": 72,
+                  "year": 2025,
+                  "name": "Материаловедение",
+                  "logo": null,
+                  "institutionCount": 3,
+                  "children": []
+                },
+                {
+                  "id": 76,
+                  "year": 2025,
+                  "name": "Биотехнология",
+                  "logo": null,
+                  "institutionCount": 1,
+                  "children": []
+                }
+              ]
+            },
+            "12": {
+              "id": 12,
+              "year": 2026,
+              "name": "Рейтинг \"Топ-100 вузов России\" RAEX",
+              "logo": {
+                "fallbackUrl": "https://static.ucheba.ru/pix/logo_cache/12_230314093351.upto100x100.png",
+                "webp": "https://static.ucheba.ru/pix/logo_cache/12_230314093351.upto100x100.webp"
+              },
+              "institutionCount": 121,
+              "children": []
+            },
+            "19": {
+              "id": 19,
+              "year": 2026,
+              "name": "Times Higher Education: World University Rankings",
+              "logo": {
+                "fallbackUrl": "https://static.ucheba.ru/pix/logo_cache/19_230314110644.upto100x100.png",
+                "webp": "https://static.ucheba.ru/pix/logo_cache/19_230314110644.upto100x100.webp"
+              },
+              "institutionCount": 94,
+              "children": []
+            }
+          },
+          "loading": "fulfilled",
+          "currentRequestId": null,
+          "error": null
+        },
+        "location": {
+          "location": null,
+          "locationByLocationIds": null,
+          "allRussiaLocation": null,
+          "locations": [
+            {
+              "id": 3,
+              "name": "Москва",
+              "slug": "moscow",
+              "namePrepositional": "Москве",
+              "nameGenitive": "Москвы",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 4,
+              "name": "Санкт-Петербург",
+              "slug": "spb",
+              "namePrepositional": "Санкт-Петербурге",
+              "nameGenitive": "Санкт-Петербурга",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 231,
+              "name": "Нижний Новгород",
+              "slug": "nn",
+              "namePrepositional": "Нижнем Новгороде",
+              "nameGenitive": "Нижнего Новгорода",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 328,
+              "name": "Екатеринбург",
+              "slug": "eburg",
+              "namePrepositional": "Екатеринбурге",
+              "nameGenitive": "Екатеринбурга",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 240,
+              "name": "Новосибирск",
+              "slug": "nsk",
+              "namePrepositional": "Новосибирске",
+              "nameGenitive": "Новосибирска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 529,
+              "name": "Уфа",
+              "slug": "ufa",
+              "namePrepositional": "Уфе",
+              "nameGenitive": "Уфы",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 481,
+              "name": "Казань",
+              "slug": "kazan",
+              "namePrepositional": "Казани",
+              "nameGenitive": "Казани",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 18,
+              "name": "Краснодар",
+              "slug": "krasnodar",
+              "namePrepositional": "Краснодаре",
+              "nameGenitive": "Краснодара",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 284,
+              "name": "Ростов-на-Дону",
+              "slug": "rostov",
+              "namePrepositional": "Ростове-на-Дону",
+              "nameGenitive": "Ростова-на-Дону",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 414,
+              "name": "Ярославль",
+              "slug": "yaroslavl",
+              "namePrepositional": "Ярославле",
+              "nameGenitive": "Ярославля",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 299,
+              "name": "Самара",
+              "slug": "samara",
+              "namePrepositional": "Самаре",
+              "nameGenitive": "Самары",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 248,
+              "name": "Омск",
+              "slug": "omsk",
+              "namePrepositional": "Омске",
+              "nameGenitive": "Омска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 25,
+              "name": "Красноярск",
+              "slug": "krasnoyarsk",
+              "namePrepositional": "Красноярске",
+              "nameGenitive": "Красноярска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 114,
+              "name": "Воронеж",
+              "slug": "voronezh",
+              "namePrepositional": "Воронеже",
+              "nameGenitive": "Воронежа",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 267,
+              "name": "Пермь",
+              "slug": "perm",
+              "namePrepositional": "Перми",
+              "nameGenitive": "Перми",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 387,
+              "name": "Тюмень",
+              "slug": "tumen",
+              "namePrepositional": "Тюмени",
+              "nameGenitive": "Тюмени",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 395,
+              "name": "Челябинск",
+              "slug": "chelyabinsk",
+              "namePrepositional": "Челябинске",
+              "nameGenitive": "Челябинска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 121,
+              "name": "Иркутск",
+              "slug": "irkutsk",
+              "namePrepositional": "Иркутске",
+              "nameGenitive": "Иркутска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 104,
+              "name": "Волгоград",
+              "slug": "volgograd",
+              "namePrepositional": "Волгограде",
+              "nameGenitive": "Волгограда",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 7,
+              "name": "Барнаул",
+              "slug": "barnaul",
+              "namePrepositional": "Барнауле",
+              "nameGenitive": "Барнаула",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 476,
+              "name": "Якутск",
+              "slug": "iakutsk",
+              "namePrepositional": "Якутске",
+              "nameGenitive": "Якутска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 41,
+              "name": "Владивосток",
+              "slug": "vladivostok",
+              "namePrepositional": "Владивостоке",
+              "nameGenitive": "Владивостока",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 310,
+              "name": "Саратов",
+              "slug": "saratov",
+              "namePrepositional": "Саратове",
+              "nameGenitive": "Саратова",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 384,
+              "name": "Тула",
+              "slug": "tula",
+              "namePrepositional": "Туле",
+              "nameGenitive": "Тулы",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 429,
+              "name": "Улан-Удэ",
+              "slug": "ulan-ude",
+              "namePrepositional": "Улан-Удэ",
+              "nameGenitive": "Улан-Удэ",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 64,
+              "name": "Хабаровск",
+              "slug": "khabarovsk",
+              "namePrepositional": "Хабаровске",
+              "nameGenitive": "Хабаровска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 487,
+              "name": "Ижевск",
+              "slug": "izhevsk",
+              "namePrepositional": "Ижевске",
+              "nameGenitive": "Ижевска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 1762,
+              "name": "Чебоксары",
+              "slug": "cheb",
+              "namePrepositional": "Чебоксарах",
+              "nameGenitive": "Чебоксар",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 297,
+              "name": "Рязань",
+              "slug": "ryazan",
+              "namePrepositional": "Рязани",
+              "nameGenitive": "Рязани",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 165,
+              "name": "Киров",
+              "slug": "kirov",
+              "namePrepositional": "Кирове",
+              "nameGenitive": "Кирова",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 136,
+              "name": "Калининград",
+              "slug": "kaliningrad",
+              "namePrepositional": "Калининграде",
+              "nameGenitive": "Калининграда",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 250,
+              "name": "Оренбург",
+              "slug": "orenburg",
+              "namePrepositional": "Оренбурге",
+              "nameGenitive": "Оренбурга",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 372,
+              "name": "Тверь",
+              "slug": "tver",
+              "namePrepositional": "Твери",
+              "nameGenitive": "Твери",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 54,
+              "name": "Ставрополь",
+              "slug": "stavropol",
+              "namePrepositional": "Ставрополе",
+              "nameGenitive": "Ставрополя",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 379,
+              "name": "Томск",
+              "slug": "tomsk",
+              "namePrepositional": "Томске",
+              "nameGenitive": "Томска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 88,
+              "name": "Белгород",
+              "slug": "belgorod",
+              "namePrepositional": "Белгороде",
+              "nameGenitive": "Белгорода",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 434,
+              "name": "Махачкала",
+              "slug": "mahachkala",
+              "namePrepositional": "Махачкале",
+              "nameGenitive": "Махачкалы",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 493,
+              "name": "Абакан",
+              "slug": "abakan",
+              "namePrepositional": "Абакане",
+              "nameGenitive": "Абакана",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 519,
+              "name": "Анадырь",
+              "slug": "anadyr",
+              "namePrepositional": "Анадыре",
+              "nameGenitive": "Анадыря",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 79,
+              "name": "Архангельск",
+              "slug": "arkhangelsk",
+              "namePrepositional": "Архангельске",
+              "nameGenitive": "Архангельска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 85,
+              "name": "Астрахань",
+              "slug": "astrakhan",
+              "namePrepositional": "Астрахани",
+              "nameGenitive": "Астрахани",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 1786,
+              "name": "Биробиджан",
+              "slug": "birobidjan",
+              "namePrepositional": "Биробиджане",
+              "nameGenitive": "Биробиджана",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 539,
+              "name": "Благовещенск",
+              "slug": "blagoveschensk_539",
+              "namePrepositional": "Благовещенске",
+              "nameGenitive": "Благовещенска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 93,
+              "name": "Брянск",
+              "slug": "bryansk",
+              "namePrepositional": "Брянске",
+              "nameGenitive": "Брянска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 238,
+              "name": "Великий Новгород",
+              "slug": "vel_nov",
+              "namePrepositional": "Великом Новгороде",
+              "nameGenitive": "Великого Новгорода",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 479,
+              "name": "Владикавказ",
+              "slug": "vladikavkaz",
+              "namePrepositional": "Владикавказе",
+              "nameGenitive": "Владикавказа",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 98,
+              "name": "Владимир",
+              "slug": "vladimir",
+              "namePrepositional": "Владимире",
+              "nameGenitive": "Владимира",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 111,
+              "name": "Вологда",
+              "slug": "vologda",
+              "namePrepositional": "Вологде",
+              "nameGenitive": "Вологды",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 432,
+              "name": "Горно-Алтайск",
+              "slug": "gorno_altaysk",
+              "namePrepositional": "Горно-Алтайске",
+              "nameGenitive": "Горно-Алтайска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 499,
+              "name": "Грозный",
+              "slug": "grozniy",
+              "namePrepositional": "Грозном",
+              "nameGenitive": "Грозного",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 118,
+              "name": "Иваново",
+              "slug": "ivanovo",
+              "namePrepositional": "Иваново",
+              "nameGenitive": "Иваново",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 470,
+              "name": "Йошкар-Ола",
+              "slug": "yola",
+              "namePrepositional": "Йошкар-Оле",
+              "nameGenitive": "Йошкар-Олы",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 143,
+              "name": "Калуга",
+              "slug": "kaluga",
+              "namePrepositional": "Калуге",
+              "nameGenitive": "Калуги",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 156,
+              "name": "Кемерово",
+              "slug": "kemerovo",
+              "namePrepositional": "Кемерово",
+              "nameGenitive": "Кемерово",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 1093,
+              "name": "Кострома",
+              "slug": "kostroma",
+              "namePrepositional": "Костроме",
+              "nameGenitive": "Костромы",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 9794,
+              "name": "Крым",
+              "slug": "crimea",
+              "namePrepositional": null,
+              "nameGenitive": null,
+              "locationType": {
+                "value": 1,
+                "name": "зона"
+              }
+            },
+            {
+              "id": 169,
+              "name": "Курган",
+              "slug": "kurgan",
+              "namePrepositional": "Кургане",
+              "nameGenitive": "Кургана",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 172,
+              "name": "Курск",
+              "slug": "kursk",
+              "namePrepositional": "Курске",
+              "nameGenitive": "Курска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 484,
+              "name": "Кызыл",
+              "slug": "kyzyl",
+              "namePrepositional": "Кызыле",
+              "nameGenitive": "Кызыла",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 176,
+              "name": "Липецк",
+              "slug": "lipetsk",
+              "namePrepositional": "Липецке",
+              "nameGenitive": "Липецка",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 179,
+              "name": "Магадан",
+              "slug": "magadan",
+              "namePrepositional": "Магадане",
+              "nameGenitive": "Магадана",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 445,
+              "name": "Магас",
+              "slug": "magas",
+              "namePrepositional": "Магасе",
+              "nameGenitive": "Магаса",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 418,
+              "name": "Майкоп",
+              "slug": "maykop",
+              "namePrepositional": "Майкопе",
+              "nameGenitive": "Майкопа",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 214,
+              "name": "Мурманск",
+              "slug": "murmansk",
+              "namePrepositional": "Мурманске",
+              "nameGenitive": "Мурманска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 450,
+              "name": "Нальчик",
+              "slug": "nalchik",
+              "namePrepositional": "Нальчике",
+              "nameGenitive": "Нальчика",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 502,
+              "name": "Нарьян-Мар",
+              "slug": "naryan_mar",
+              "namePrepositional": "Нарьян-Маре",
+              "nameGenitive": "Нарьян-Мара",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 260,
+              "name": "Орел",
+              "slug": "orel",
+              "namePrepositional": "Орле",
+              "nameGenitive": "Орла",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 264,
+              "name": "Пенза",
+              "slug": "penza",
+              "namePrepositional": "Пензе",
+              "nameGenitive": "Пензы",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 457,
+              "name": "Петрозаводск",
+              "slug": "petrozavod",
+              "namePrepositional": "Петрозаводске",
+              "nameGenitive": "Петрозаводска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 146,
+              "name": "Петропавловск-Камчатский",
+              "slug": "petropavlovsk_kamchatskiy",
+              "namePrepositional": "Петропавловске-Камчатском",
+              "nameGenitive": "Петропавловска-Камчатского",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 281,
+              "name": "Псков",
+              "slug": "pskov",
+              "namePrepositional": "Пскове",
+              "nameGenitive": "Пскова",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 521,
+              "name": "Салехард",
+              "slug": "salehard",
+              "namePrepositional": "Салехарде",
+              "nameGenitive": "Салехарда",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 474,
+              "name": "Саранск",
+              "slug": "saransk",
+              "namePrepositional": "Саранске",
+              "nameGenitive": "Саранска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 362,
+              "name": "Смоленск",
+              "slug": "Smolensk",
+              "namePrepositional": "Смоленске",
+              "nameGenitive": "Смоленска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 461,
+              "name": "Сыктывкар",
+              "slug": "syktyvkar",
+              "namePrepositional": "Сыктывкаре",
+              "nameGenitive": "Сыктывкара",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 366,
+              "name": "Тамбов",
+              "slug": "Tambov",
+              "namePrepositional": "Тамбове",
+              "nameGenitive": "Тамбова",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 390,
+              "name": "Ульяновск",
+              "slug": "ulv",
+              "namePrepositional": "Ульяновске",
+              "nameGenitive": "Ульяновска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 504,
+              "name": "Ханты-Мансийск",
+              "slug": "hanty-mansijsk",
+              "namePrepositional": "Ханты-Мансийске",
+              "nameGenitive": "Ханты-Мансийска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 454,
+              "name": "Черкесск",
+              "slug": "cherkessk",
+              "namePrepositional": "Черкесске",
+              "nameGenitive": "Черкесска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 412,
+              "name": "Чита",
+              "slug": "Chita",
+              "namePrepositional": "Чите",
+              "nameGenitive": "Читы",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 452,
+              "name": "Элиста",
+              "slug": "elista",
+              "namePrepositional": "Элисте",
+              "nameGenitive": "Элисты",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            },
+            {
+              "id": 326,
+              "name": "Южно-Сахалинск",
+              "slug": "yujno_sahalinsk",
+              "namePrepositional": "Южно-Сахалинске",
+              "nameGenitive": "Южно-Сахалинска",
+              "locationType": {
+                "value": 4,
+                "name": "населенный пункт"
+              }
+            }
+          ],
+          "selectedLocations": [],
+          "popularLocations": [],
+          "loading": "fulfilled",
+          "currentRequestId": null,
+          "error": null
+        },
+        "tagsStats": {
+          "parents": {
+            "ids": [
+              320,
+              425,
+              37,
+              77,
+              125,
+              8,
+              434,
+              50,
+              82
+            ],
+            "entities": {
+              "8": {
+                "id": 8,
+                "name": "безопасность и военное дело",
+                "color": "plum",
+                "iconUrl": "/pix/user_icon/89.svg",
+                "nameDative": "безопасности и военному делу",
+                "nameGenitive": "безопасности и военного дела",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "slug": "army-and-security",
+                "specialitiesCount": 23,
+                "institutionsCount": 381
+              },
+              "37": {
+                "id": 37,
+                "name": "информационные технологии",
+                "color": "gold",
+                "iconUrl": "/pix/user_icon/80.svg",
+                "nameDative": "информационным технологиям",
+                "nameGenitive": "информационных технологий",
+                "nameAdjective": "",
+                "nameProfPlural": "IT-специалистов",
+                "slug": "it",
+                "specialitiesCount": 43,
+                "institutionsCount": 818
+              },
+              "50": {
+                "id": 50,
+                "name": "искусство и творчество",
+                "color": "blue",
+                "iconUrl": "/pix/user_icon/84.svg",
+                "nameDative": "искусству и творчеству",
+                "nameGenitive": "искусства и творчества",
+                "nameAdjective": "творческие",
+                "nameProfPlural": "",
+                "slug": "art-and-creativity",
+                "specialitiesCount": 50,
+                "institutionsCount": 233
+              },
+              "77": {
+                "id": 77,
+                "name": "медиа, дизайн и архитектура",
+                "color": "blue",
+                "iconUrl": "/pix/user_icon/83.svg",
+                "nameDative": "медиа, дизайну и архитектуре",
+                "nameGenitive": "медиа, дизайна и архитектуры",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "slug": "media-and-design",
+                "specialitiesCount": 25,
+                "institutionsCount": 597
+              },
+              "82": {
+                "id": 82,
+                "name": "медицина и здравоохранение",
+                "color": "acid",
+                "iconUrl": "/pix/user_icon/86.svg",
+                "nameDative": "медицине и здравоохранению",
+                "nameGenitive": "медицины и здравоохранения",
+                "nameAdjective": "медицинские",
+                "nameProfPlural": "врачей",
+                "slug": "rubric_medicine",
+                "specialitiesCount": 12,
+                "institutionsCount": 189
+              },
+              "125": {
+                "id": 125,
+                "name": "техника и технологии",
+                "color": "gold",
+                "iconUrl": "/pix/user_icon/79.svg",
+                "nameDative": "технике и технологиям",
+                "nameGenitive": "техники и технологий",
+                "nameAdjective": "технические и технологические",
+                "nameProfPlural": "",
+                "slug": "engineering-and-technology",
+                "specialitiesCount": 140,
+                "institutionsCount": 561
+              },
+              "320": {
+                "id": 320,
+                "name": "гуманитарные и социальные науки",
+                "color": "blue",
+                "iconUrl": "/pix/user_icon/82.svg",
+                "nameDative": "гуманитарным и социальным наукам",
+                "nameGenitive": "гуманитарных и социальных наук",
+                "nameAdjective": "гуманитарные и социальные",
+                "nameProfPlural": "",
+                "slug": "humanities",
+                "specialitiesCount": 83,
+                "institutionsCount": 860
+              },
+              "425": {
+                "id": 425,
+                "name": "управление и экономика",
+                "color": "flamingo",
+                "iconUrl": "/pix/user_icon/81.svg",
+                "nameDative": "управлению и экономике",
+                "nameGenitive": "управления и экономики",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "slug": "management-economics",
+                "specialitiesCount": 38,
+                "institutionsCount": 831
+              },
+              "434": {
+                "id": 434,
+                "name": "точные и естественные науки",
+                "color": "acid",
+                "iconUrl": "/pix/user_icon/85.svg",
+                "nameDative": "точным и естественным наукам",
+                "nameGenitive": "точных и естественных наук",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "slug": "exact-and-natural-sciences",
+                "specialitiesCount": 44,
+                "institutionsCount": 379
+              }
+            },
+            "totalSpecialitiesCount": 430,
+            "totalInstitutionsCount": 1484,
+            "loading": "fulfilled",
+            "currentRequestId": null,
+            "error": null
+          },
+          "children": {
+            "ids": [],
+            "entities": {},
+            "totalSpecialitiesCount": 0,
+            "totalInstitutionsCount": 0,
+            "loading": "idle",
+            "currentRequestId": null,
+            "error": null
+          }
+        },
+        "articlesSlice": {
+          "entity": {
+            "total": 15,
+            "items": [
+              {
+                "id": 6674,
+                "title": "Высокооплачиваемые профессии после курсов: ТОП-10 специальностей",
+                "announce": "Какие профессии можно освоить на курсах? Обзор 10 специальностей: зарплаты в СПб, сроки и трудоустройство.",
+                "imageFile": "6674_image.small.webp",
+                "datePublished": "2026-10-28 10:26:00",
+                "isPaid": true
+              },
+              {
+                "id": 6673,
+                "title": "Как меняется высшее образование в&nbsp;России: объясняем на&nbsp;примере Университета МИСИС",
+                "announce": "Что изменится для абитуриентов в&nbsp;обновленной системе высшего образования? Объясняем простыми словами.",
+                "imageFile": "6673_image.small.webp",
+                "datePublished": "2026-06-05 18:00:00",
+                "isPaid": true
+              },
+              {
+                "id": 6672,
+                "title": "Целевой набор в МГПУ",
+                "announce": "Стань учителем мирового уровня в МГПУ! Целевой набор открыт - ссылка на заявку в этой статье!",
+                "imageFile": "6672_image.small.webp",
+                "datePublished": "2026-04-29 14:30:00",
+                "isPaid": true
+              },
+              {
+                "id": 6364,
+                "title": "Портфолио абитуриента — 2026",
+                "announce": "Количество баллов за&nbsp;индивидуальные достижения",
+                "imageFile": "6364_image.small.jpeg",
+                "datePublished": "2024-12-10 00:00:00",
+                "isPaid": false
+              },
+              {
+                "id": 6587,
+                "title": "Расписание ОГЭ — 2026",
+                "announce": "Опубликован проект совместного приказа Минпросвещения и Рособрнадзора о сроках проведения ОГЭ в 2025 году.",
+                "imageFile": "6587_image.small.webp",
+                "datePublished": "2024-10-19 12:30:27",
+                "isPaid": false
+              },
+              {
+                "id": 6586,
+                "title": "Расписание ЕГЭ — 2026",
+                "announce": "Даты экзаменов в 2026 году",
+                "imageFile": "6586_image.small.webp",
+                "datePublished": "2024-10-19 12:29:36",
+                "isPaid": false
+              },
+              {
+                "id": 6459,
+                "title": "Все способы поступить в вуз",
+                "announce": "Как повысить свои шансы на зачисление?",
+                "imageFile": "6459_image.small.jpeg",
+                "datePublished": "2024-01-28 15:10:32",
+                "isPaid": false
+              },
+              {
+                "id": 6491,
+                "title": "На что обращать внимание при выборе колледжа?",
+                "announce": "Важные критерии: чек-лист для абитуриента",
+                "imageFile": "6491_image.small.jpeg",
+                "datePublished": "2021-07-17 09:34:09",
+                "isPaid": false
+              },
+              {
+                "id": 6492,
+                "title": "С чего начать выбор профессии?",
+                "announce": "Шесть важных советов для правильного старта\t",
+                "imageFile": "6492_image.small.jpeg",
+                "datePublished": "2021-06-15 09:34:09",
+                "isPaid": false
+              },
+              {
+                "id": 6493,
+                "title": "Поступать в вуз или идти в колледж?",
+                "announce": "Плюсы и минусы обоих вариантов",
+                "imageFile": "6493_image.small.jpeg",
+                "datePublished": "2021-06-15 09:34:09",
+                "isPaid": false
+              }
+            ]
+          },
+          "loading": "fulfilled",
+          "currentRequestId": null,
+          "error": null
+        },
+        "defineLocationNoticeSlice": {
+          "isShowLocationNotice": true
+        }
+      }
+    },
+    "initialState": {
+      "core": {
+        "isLayout": true,
+        "isTouch": false,
+        "changedId": 1794320971200,
+        "layout": null,
+        "programTypes": null
+      },
+      "header": {
+        "color": "black",
+        "fade": "white",
+        "width": "auto",
+        "isShowNavigation": true,
+        "isShowHeader": true,
+        "changedId": 1794320971200,
+        "isShowPhone": true,
+        "variant": "1"
+      },
+      "footer": {
+        "color": "silver",
+        "changedId": 1794320971200,
+        "isShowFooter": true,
+        "navLinks": null,
+        "isShowMessengers": true
+      },
+      "tagsStats": {
+        "parents": {
+          "ids": [],
+          "entities": {},
+          "totalSpecialitiesCount": 0,
+          "totalInstitutionsCount": 0,
+          "loading": "idle",
+          "currentRequestId": null,
+          "error": null
+        },
+        "children": {
+          "ids": [],
+          "entities": {},
+          "totalSpecialitiesCount": 0,
+          "totalInstitutionsCount": 0,
+          "loading": "idle",
+          "currentRequestId": null,
+          "error": null
+        }
+      },
+      "defineLocationNoticeSlice": {
+        "isShowLocationNotice": true
+      }
+    },
+    "__N_SSG": true
+  },
+  "page": "/index/desktop",
+  "query": {},
+  "buildId": "cMQJmMyd82T5ApDIUTKFN",
+  "isFallback": false,
+  "isExperimentalCompile": false,
+  "dynamicIds": [
+    38744
+  ],
+  "gsp": true,
+  "appGip": true,
+  "scriptLoader": []
+}

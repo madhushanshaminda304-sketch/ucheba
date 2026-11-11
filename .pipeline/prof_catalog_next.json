@@ -1,0 +1,1511 @@
+{
+  "props": {
+    "pageProps": {
+      "content": {
+        "seo": {
+          "title": "Каталог профессий — Учёба.ру",
+          "description": "Собрали всю информацию о профессиях: чем занимается, как стать, где работать и какое образование нужно получить. Выбери профессию своей мечты!"
+        }
+      },
+      "isTouch": false
+    },
+    "initialState": {
+      "core": {
+        "isLayout": true,
+        "isTouch": false,
+        "changedId": 1794321767596,
+        "layout": null,
+        "programTypes": null
+      },
+      "header": {
+        "color": "black",
+        "fade": "white",
+        "width": "auto",
+        "isShowNavigation": true,
+        "isShowHeader": true,
+        "changedId": 1794321767596,
+        "isShowPhone": true,
+        "variant": "1"
+      },
+      "footer": {
+        "color": "silver",
+        "changedId": 1794321767596,
+        "isShowFooter": true,
+        "navLinks": null,
+        "isShowMessengers": true
+      },
+      "tagsStats": {
+        "parents": {
+          "ids": [],
+          "entities": {},
+          "totalSpecialitiesCount": 0,
+          "totalInstitutionsCount": 0,
+          "loading": "idle",
+          "currentRequestId": null,
+          "error": null
+        },
+        "children": {
+          "ids": [],
+          "entities": {},
+          "totalSpecialitiesCount": 0,
+          "totalInstitutionsCount": 0,
+          "loading": "idle",
+          "currentRequestId": null,
+          "error": null
+        }
+      },
+      "professionsSearch": {
+        "entity": {
+          "total": 953,
+          "items": [
+            {
+              "shortDescription": "Программист разрабатывает алгоритмы работы электронных устройств: от&nbsp;компьютеров и мобильных телефонов до&nbsp;космических спутников.",
+              "stats": {
+                "universitiesCount": 771,
+                "collegesCount": 437,
+                "coursesCount": 35,
+                "specialitiesCount": 19
+              },
+              "tagIds": [
+                38
+              ],
+              "specialityIds": [
+                347,
+                51797,
+                51798,
+                55256,
+                55257,
+                55270,
+                55321,
+                55332,
+                55335,
+                57531,
+                57533,
+                57650,
+                58545,
+                58636,
+                58671,
+                58679,
+                58712,
+                58744,
+                58745
+              ],
+              "id": 45,
+              "name": "Программист"
+            },
+            {
+              "shortDescription": "Блогер владеет всеми тонкостями создания личного или коммерческого блога, его продвижения и коммуникации с аудиторией.",
+              "stats": {
+                "universitiesCount": 258,
+                "collegesCount": 356,
+                "coursesCount": 20,
+                "specialitiesCount": 4
+              },
+              "tagIds": [
+                109
+              ],
+              "specialityIds": [
+                48,
+                52218,
+                55274,
+                58506
+              ],
+              "id": 1364,
+              "name": "Блогер"
+            },
+            {
+              "shortDescription": "Специалист меняет генетический состав продукта, чтобы получить новые желаемые свойства. Генная инженерия является одним из инструментов биотехнологии.",
+              "stats": {
+                "universitiesCount": 36,
+                "collegesCount": 0,
+                "coursesCount": 6,
+                "specialitiesCount": 2
+              },
+              "tagIds": [
+                287
+              ],
+              "specialityIds": [
+                57462,
+                57551
+              ],
+              "id": 2334,
+              "name": "Генный инженер"
+            },
+            {
+              "shortDescription": "Графические дизайнеры оформляют все, что нас окружает: сайты, книги, журналы, билборды, логотипы компаний.",
+              "stats": {
+                "universitiesCount": 394,
+                "collegesCount": 656,
+                "coursesCount": 33,
+                "specialitiesCount": 4
+              },
+              "tagIds": [
+                11,
+                13
+              ],
+              "specialityIds": [
+                52030,
+                52234,
+                58540,
+                58615
+              ],
+              "id": 4839,
+              "name": "Графический дизайнер"
+            },
+            {
+              "shortDescription": "Инженер беспилотной авиации занимается как техническим обслуживанием летательных аппаратов, так и программированием. Он разрабатывает систему навигации — фактически «учит» беспилотники летать безопасно и ориентироваться в пространстве.",
+              "stats": {
+                "universitiesCount": 7,
+                "collegesCount": 177,
+                "coursesCount": 1,
+                "specialitiesCount": 3
+              },
+              "tagIds": [
+                127
+              ],
+              "specialityIds": [
+                57491,
+                57606,
+                58557
+              ],
+              "id": 4867,
+              "name": "Инженер беспилотной авиации"
+            },
+            {
+              "shortDescription": "Урбанист занимается городским планированием. В его силах спроектировать комфортный для жизни город. Чтобы это сделать, нужно принять во внимание и архитектуру, и инфраструктурные особенности, к которым относятся транспортные зоны, детские и спортивные площадки, парки.",
+              "stats": {
+                "universitiesCount": 95,
+                "collegesCount": 0,
+                "coursesCount": 2,
+                "specialitiesCount": 3
+              },
+              "tagIds": [
+                7
+              ],
+              "specialityIds": [
+                421,
+                57500,
+                58644
+              ],
+              "id": 4869,
+              "name": "Специалист по проектированию городов (урбанист)"
+            },
+            {
+              "shortDescription": "Специалист по искусственному интеллекту (также его называют ML-специалистом) создает программы и коды для «обучения» алгоритмов. В будущем они смогут выполнять различные задачи и таким образом помогать человеку.",
+              "stats": {
+                "universitiesCount": 758,
+                "collegesCount": 435,
+                "coursesCount": 35,
+                "specialitiesCount": 15
+              },
+              "tagIds": [
+                38
+              ],
+              "specialityIds": [
+                347,
+                51797,
+                51798,
+                55256,
+                55270,
+                55321,
+                55332,
+                55335,
+                57531,
+                58545,
+                58671,
+                58679,
+                58712,
+                58744,
+                58787
+              ],
+              "id": 4917,
+              "name": "Специалист по искусственному интеллекту и машинному обучению"
+            },
+            {
+              "shortDescription": "Нейропсихолог — это клинический психолог, он работает с пациентами, у которых есть нарушения функций мозга.",
+              "stats": {
+                "universitiesCount": 271,
+                "collegesCount": 0,
+                "coursesCount": 34,
+                "specialitiesCount": 4
+              },
+              "tagIds": [
+                88
+              ],
+              "specialityIds": [
+                38,
+                60,
+                58676,
+                58726
+              ],
+              "id": 4950,
+              "name": "Нейропсихолог"
+            },
+            {
+              "shortDescription": "Нутрициолог — специалист, формирующий пищевое поведение и рацион питания, исходя из наших потребностей, привычек и образа жизни. Нутрициолог помогает прийти к правильному питанию, составляет здоровый рацион и формирует у клиентов правильные пищевые привычки.",
+              "stats": {
+                "universitiesCount": 104,
+                "collegesCount": 370,
+                "coursesCount": 14,
+                "specialitiesCount": 2
+              },
+              "tagIds": [
+                335
+              ],
+              "specialityIds": [
+                97,
+                50632
+              ],
+              "id": 4895,
+              "name": "Нутрициолог-консультант"
+            },
+            {
+              "shortDescription": "Представитель этой профессии занимается продвижением товаров и услуг с помощью интернет-технологий. Их работа всегда связана со сбором, обработкой и анализом информации.",
+              "stats": {
+                "universitiesCount": 132,
+                "collegesCount": 0,
+                "coursesCount": 47,
+                "specialitiesCount": 5
+              },
+              "tagIds": [
+                46,
+                74
+              ],
+              "specialityIds": [
+                57537,
+                58501,
+                58600,
+                58620,
+                58691
+              ],
+              "id": 4897,
+              "name": "Digital-маркетолог"
+            }
+          ],
+          "facets": {
+            "tags": [
+              {
+                "value": 82,
+                "name": "медицина и здравоохранение",
+                "count": 103,
+                "nameDative": "медицине и здравоохранению",
+                "nameGenitive": "медицины и здравоохранения",
+                "nameAdjective": "медицинские",
+                "nameProfPlural": "врачей",
+                "iconUrl": "/pix/user_icon/86.svg",
+                "color": "acid",
+                "slug": "rubric_medicine",
+                "items": [
+                  {
+                    "value": 83,
+                    "name": "лечебное дело",
+                    "count": 71,
+                    "nameDative": "лечебному делу",
+                    "nameGenitive": "лечебного дела",
+                    "nameAdjective": "",
+                    "nameProfPlural": "врачей",
+                    "iconUrl": "/pix/user_icon/116.svg",
+                    "color": null,
+                    "slug": "lechebnoe-delo",
+                    "items": []
+                  },
+                  {
+                    "value": 424,
+                    "name": "косметология, массаж, питание",
+                    "count": 12,
+                    "nameDative": "косметологии, массажу, питанию",
+                    "nameGenitive": "косметологии, массажа, питания",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/115.svg",
+                    "color": null,
+                    "slug": "kosmetologiya-massazh-pitanie",
+                    "items": []
+                  },
+                  {
+                    "value": 87,
+                    "name": "фармация и фармакология",
+                    "count": 6,
+                    "nameDative": "фармации и фармакологии",
+                    "nameGenitive": "фармации и фармакологии",
+                    "nameAdjective": "",
+                    "nameProfPlural": "фармакологов",
+                    "iconUrl": "/pix/user_icon/118.svg",
+                    "color": null,
+                    "slug": "pharmacy",
+                    "items": []
+                  },
+                  {
+                    "value": 90,
+                    "name": "ветеринария",
+                    "count": 5,
+                    "nameDative": "ветеринарии",
+                    "nameGenitive": "ветеринарии",
+                    "nameAdjective": "ветеринарные",
+                    "nameProfPlural": "ветеринаров",
+                    "iconUrl": "/pix/user_icon/114.svg",
+                    "color": null,
+                    "slug": "veterinariya",
+                    "items": []
+                  },
+                  {
+                    "value": 303,
+                    "name": "медицинские технологии",
+                    "count": 3,
+                    "nameDative": "медицинским технологиям",
+                    "nameGenitive": "медицинских технологий",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/117.svg",
+                    "color": null,
+                    "slug": "medic-technologies",
+                    "items": []
+                  },
+                  {
+                    "value": 86,
+                    "name": "стоматология",
+                    "count": 3,
+                    "nameDative": "стоматологии",
+                    "nameGenitive": "стоматологии",
+                    "nameAdjective": "стоматологические",
+                    "nameProfPlural": "стоматологов",
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "stomatologiya",
+                    "items": []
+                  },
+                  {
+                    "value": 89,
+                    "name": "сестринское дело",
+                    "count": 3,
+                    "nameDative": "сестринскому делу",
+                    "nameGenitive": "сестринского дела",
+                    "nameAdjective": "",
+                    "nameProfPlural": "медсестер",
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "sestrinskoe-delo",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 320,
+                "name": "гуманитарные и социальные науки",
+                "count": 173,
+                "nameDative": "гуманитарным и социальным наукам",
+                "nameGenitive": "гуманитарных и социальных наук",
+                "nameAdjective": "гуманитарные и социальные",
+                "nameProfPlural": "",
+                "iconUrl": "/pix/user_icon/82.svg",
+                "color": "blue",
+                "slug": "humanities",
+                "items": [
+                  {
+                    "value": 91,
+                    "name": "образование и психология",
+                    "count": 65,
+                    "nameDative": "образованию и психологии",
+                    "nameGenitive": "образования и психологии",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/122.svg",
+                    "color": null,
+                    "slug": "education-and-psychology",
+                    "items": []
+                  },
+                  {
+                    "value": 171,
+                    "name": "право",
+                    "count": 34,
+                    "nameDative": "праву",
+                    "nameGenitive": "права",
+                    "nameAdjective": "юридические",
+                    "nameProfPlural": "юристов",
+                    "iconUrl": "/pix/user_icon/124.svg",
+                    "color": null,
+                    "slug": "rubric_law",
+                    "items": []
+                  },
+                  {
+                    "value": 61,
+                    "name": "история и культурология",
+                    "count": 27,
+                    "nameDative": "истории и культурологии",
+                    "nameGenitive": "истории и культурологии",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/119.svg",
+                    "color": null,
+                    "slug": "history-and-culture",
+                    "items": []
+                  },
+                  {
+                    "value": 70,
+                    "name": "филология и лингвистика",
+                    "count": 20,
+                    "nameDative": "филологии и лингвистике",
+                    "nameGenitive": "филологии и лингвистики",
+                    "nameAdjective": "",
+                    "nameProfPlural": "филологов и лингвистов",
+                    "iconUrl": "/pix/user_icon/120.svg",
+                    "color": null,
+                    "slug": "philology-and-linguistics",
+                    "items": []
+                  },
+                  {
+                    "value": 94,
+                    "name": "политология и социология",
+                    "count": 10,
+                    "nameDative": "политологии и социологии",
+                    "nameGenitive": "политологии и социологии",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/123.svg",
+                    "color": null,
+                    "slug": "politics-and-sociology",
+                    "items": []
+                  },
+                  {
+                    "value": 110,
+                    "name": "физическая культура и спорт",
+                    "count": 9,
+                    "nameDative": "физической культуре и спорту",
+                    "nameGenitive": "физической культуры и спорта",
+                    "nameAdjective": "",
+                    "nameProfPlural": "тренеров и спортсменов",
+                    "iconUrl": "/pix/user_icon/126.svg",
+                    "color": null,
+                    "slug": "fizkultura-and-sport",
+                    "items": []
+                  },
+                  {
+                    "value": 432,
+                    "name": "международные отношения",
+                    "count": 5,
+                    "nameDative": "международным отношениям",
+                    "nameGenitive": "международных отношений",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/121.svg",
+                    "color": null,
+                    "slug": "international-relationships",
+                    "items": []
+                  },
+                  {
+                    "value": 300,
+                    "name": "социальная сфера",
+                    "count": 3,
+                    "nameDative": "социальной сфере",
+                    "nameGenitive": "социальной сферы",
+                    "nameAdjective": "",
+                    "nameProfPlural": "социальных работников",
+                    "iconUrl": "/pix/user_icon/125.svg",
+                    "color": null,
+                    "slug": "social-management",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 425,
+                "name": "управление и экономика",
+                "count": 162,
+                "nameDative": "управлению и экономике",
+                "nameGenitive": "управления и экономики",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "iconUrl": "/pix/user_icon/81.svg",
+                "color": "flamingo",
+                "slug": "management-economics",
+                "items": [
+                  {
+                    "value": 138,
+                    "name": "управление",
+                    "count": 54,
+                    "nameDative": "управлению",
+                    "nameGenitive": "управления",
+                    "nameAdjective": "",
+                    "nameProfPlural": "руководителей",
+                    "iconUrl": "/pix/user_icon/130.svg",
+                    "color": "flamingo",
+                    "slug": "management-and-business",
+                    "items": []
+                  },
+                  {
+                    "value": 74,
+                    "name": "маркетинг",
+                    "count": 47,
+                    "nameDative": "маркетингу",
+                    "nameGenitive": "маркетинга",
+                    "nameAdjective": "",
+                    "nameProfPlural": "маркетологов",
+                    "iconUrl": "/pix/user_icon/132.svg",
+                    "color": "flamingo",
+                    "slug": "marketing-adv-pr",
+                    "items": []
+                  },
+                  {
+                    "value": 153,
+                    "name": "экономика и финансы",
+                    "count": 37,
+                    "nameDative": "экономике и финансам",
+                    "nameGenitive": "экономики и финансов",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/131.svg",
+                    "color": "flamingo",
+                    "slug": "economics-and-finances",
+                    "items": []
+                  },
+                  {
+                    "value": 348,
+                    "name": "туризм и гостеприимство",
+                    "count": 16,
+                    "nameDative": "туризму и гостеприимству",
+                    "nameGenitive": "туризма и гостеприимства",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/133.svg",
+                    "color": "flamingo",
+                    "slug": "horeca",
+                    "items": []
+                  },
+                  {
+                    "value": 313,
+                    "name": "офис, делопроизводство",
+                    "count": 8,
+                    "nameDative": "офису, делопроизводству",
+                    "nameGenitive": "офиса, делопроизводства",
+                    "nameAdjective": "",
+                    "nameProfPlural": "секретарей",
+                    "iconUrl": "/pix/user_icon/134.svg",
+                    "color": "flamingo",
+                    "slug": "office",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 125,
+                "name": "техника и технологии",
+                "count": 191,
+                "nameDative": "технике и технологиям",
+                "nameGenitive": "техники и технологий",
+                "nameAdjective": "технические и технологические",
+                "nameProfPlural": "",
+                "iconUrl": "/pix/user_icon/79.svg",
+                "color": "gold",
+                "slug": "engineering-and-technology",
+                "items": [
+                  {
+                    "value": 439,
+                    "name": "машиностроение и робототехника",
+                    "count": 49,
+                    "nameDative": "машиностроению и робототехнике",
+                    "nameGenitive": "машиностроения и робототехники",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/144.svg",
+                    "color": null,
+                    "slug": "mechanical-engineering-and-robotics",
+                    "items": []
+                  },
+                  {
+                    "value": 151,
+                    "name": "сельское, лесное и водное хозяйство",
+                    "count": 28,
+                    "nameDative": "сельскому, лесному и водному хозяйству",
+                    "nameGenitive": "сельского, лесного и водного хозяйства",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/151.svg",
+                    "color": null,
+                    "slug": "agriculture",
+                    "items": []
+                  },
+                  {
+                    "value": 433,
+                    "name": "геология, геодезия и нефтегазовое дело",
+                    "count": 23,
+                    "nameDative": "геологии, геодезии и нефтегазовому делу",
+                    "nameGenitive": "геологии, геодезии и нефтегазового дела",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/147.svg",
+                    "color": null,
+                    "slug": "geologiya-geodeziya-neftegazovoe-delo",
+                    "items": []
+                  },
+                  {
+                    "value": 5,
+                    "name": "строительство",
+                    "count": 19,
+                    "nameDative": "строительству",
+                    "nameGenitive": "строительства",
+                    "nameAdjective": "строительные",
+                    "nameProfPlural": "строителей",
+                    "iconUrl": "/pix/user_icon/148.svg",
+                    "color": null,
+                    "slug": "building",
+                    "items": []
+                  },
+                  {
+                    "value": 127,
+                    "name": "авиация и ракетостроение",
+                    "count": 16,
+                    "nameDative": "авиации и ракетостроению",
+                    "nameGenitive": "авиации и ракетостроения",
+                    "nameAdjective": "авиационные и ракетостроительные",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/142.svg",
+                    "color": null,
+                    "slug": "aviaciya-i-raketostroenie",
+                    "items": []
+                  },
+                  {
+                    "value": 129,
+                    "name": "пищевое производство",
+                    "count": 15,
+                    "nameDative": "пищевому производству",
+                    "nameGenitive": "пищевого производства",
+                    "nameAdjective": "",
+                    "nameProfPlural": "технологов пищевого производства",
+                    "iconUrl": "/pix/user_icon/153.svg",
+                    "color": null,
+                    "slug": "pishchevoe-proizvodstvo",
+                    "items": []
+                  },
+                  {
+                    "value": 133,
+                    "name": "электроника и приборостроение",
+                    "count": 11,
+                    "nameDative": "электронике и приборостроению",
+                    "nameGenitive": "электроники и приборостроения",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/145.svg",
+                    "color": null,
+                    "slug": "elektronika-i-priborostroenie",
+                    "items": []
+                  },
+                  {
+                    "value": 168,
+                    "name": "энергетика",
+                    "count": 11,
+                    "nameDative": "энергетике",
+                    "nameGenitive": "энергетики",
+                    "nameAdjective": "энергетические",
+                    "nameProfPlural": "энергетиков",
+                    "iconUrl": "/pix/user_icon/141.svg",
+                    "color": null,
+                    "slug": "energetics",
+                    "items": []
+                  },
+                  {
+                    "value": 437,
+                    "name": "транспорт",
+                    "count": 8,
+                    "nameDative": "транспорту",
+                    "nameGenitive": "транспорта",
+                    "nameAdjective": "транспортные",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/143.svg",
+                    "color": null,
+                    "slug": "all-transport",
+                    "items": []
+                  },
+                  {
+                    "value": 438,
+                    "name": "технологии материалов",
+                    "count": 8,
+                    "nameDative": "технологиям материалов",
+                    "nameGenitive": "технологий материалов",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/150.svg",
+                    "color": null,
+                    "slug": "materials-technology",
+                    "items": []
+                  },
+                  {
+                    "value": 311,
+                    "name": "управление качеством",
+                    "count": 2,
+                    "nameDative": "управлению качеством",
+                    "nameGenitive": "управления качеством",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/152.svg",
+                    "color": null,
+                    "slug": "quality-management",
+                    "items": []
+                  },
+                  {
+                    "value": 317,
+                    "name": "нанотехнологии",
+                    "count": 1,
+                    "nameDative": "нанотехнологиям",
+                    "nameGenitive": "нанотехнологий",
+                    "nameAdjective": "",
+                    "nameProfPlural": "нанотехнологов",
+                    "iconUrl": "/pix/user_icon/146.svg",
+                    "color": null,
+                    "slug": "nanotechnology",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 77,
+                "name": "медиа, дизайн и архитектура",
+                "count": 93,
+                "nameDative": "медиа, дизайну и архитектуре",
+                "nameGenitive": "медиа, дизайна и архитектуры",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "iconUrl": "/pix/user_icon/83.svg",
+                "color": "blue",
+                "slug": "media-and-design",
+                "items": [
+                  {
+                    "value": 109,
+                    "name": "медиа и коммуникации",
+                    "count": 46,
+                    "nameDative": "медиа и коммуникациям",
+                    "nameGenitive": "медиа и коммуникаций",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/129.svg",
+                    "color": null,
+                    "slug": "media-and-communications",
+                    "items": []
+                  },
+                  {
+                    "value": 11,
+                    "name": "дизайн",
+                    "count": 38,
+                    "nameDative": "дизайну",
+                    "nameGenitive": "дизайна",
+                    "nameAdjective": "",
+                    "nameProfPlural": "дизайнеров",
+                    "iconUrl": "/pix/user_icon/128.svg",
+                    "color": null,
+                    "slug": "rubric_design",
+                    "items": []
+                  },
+                  {
+                    "value": 3,
+                    "name": "архитектура и урбанистика",
+                    "count": 9,
+                    "nameDative": "архитектуре и урбанистике",
+                    "nameGenitive": "архитектуры и урбанистики",
+                    "nameAdjective": "",
+                    "nameProfPlural": "архитекторов и урбанистов",
+                    "iconUrl": "/pix/user_icon/155.svg",
+                    "color": null,
+                    "slug": "architecture-and-urbanism",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 37,
+                "name": "информационные технологии",
+                "count": 88,
+                "nameDative": "информационным технологиям",
+                "nameGenitive": "информационных технологий",
+                "nameAdjective": "",
+                "nameProfPlural": "IT-специалистов",
+                "iconUrl": "/pix/user_icon/80.svg",
+                "color": "gold",
+                "slug": "it",
+                "items": [
+                  {
+                    "value": 38,
+                    "name": "программирование",
+                    "count": 38,
+                    "nameDative": "программированию",
+                    "nameGenitive": "программирования",
+                    "nameAdjective": "",
+                    "nameProfPlural": "программистов",
+                    "iconUrl": "/pix/user_icon/138.svg",
+                    "color": null,
+                    "slug": "coding",
+                    "items": []
+                  },
+                  {
+                    "value": 40,
+                    "name": "информационная безопасность",
+                    "count": 21,
+                    "nameDative": "информационной безопасности",
+                    "nameGenitive": "информационной безопасности",
+                    "nameAdjective": "",
+                    "nameProfPlural": "специалистов по информационной безопасности",
+                    "iconUrl": "/pix/user_icon/136.svg",
+                    "color": null,
+                    "slug": "information-security",
+                    "items": []
+                  },
+                  {
+                    "value": 43,
+                    "name": "телекоммуникации и связь",
+                    "count": 10,
+                    "nameDative": "телекоммуникациям и связи",
+                    "nameGenitive": "телекоммуникаций и связи",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/140.svg",
+                    "color": null,
+                    "slug": "telecom",
+                    "items": []
+                  },
+                  {
+                    "value": 328,
+                    "name": "анализ данных",
+                    "count": 6,
+                    "nameDative": "анализу данных",
+                    "nameGenitive": "анализа данных",
+                    "nameAdjective": "",
+                    "nameProfPlural": "специалистов по анализу данных",
+                    "iconUrl": "/pix/user_icon/135.svg",
+                    "color": null,
+                    "slug": "data-science",
+                    "items": []
+                  },
+                  {
+                    "value": 353,
+                    "name": "информатика",
+                    "count": 5,
+                    "nameDative": "",
+                    "nameGenitive": "",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "informatika-i-ikt",
+                    "items": []
+                  },
+                  {
+                    "value": 44,
+                    "name": "ИТ-менеджмент",
+                    "count": 5,
+                    "nameDative": "ИТ-менеджменту",
+                    "nameGenitive": "ИТ-менеджмента",
+                    "nameAdjective": "",
+                    "nameProfPlural": "IT-менеджеров",
+                    "iconUrl": "/pix/user_icon/137.svg",
+                    "color": null,
+                    "slug": "it-menedzhment",
+                    "items": []
+                  },
+                  {
+                    "value": 41,
+                    "name": "системное администрирование",
+                    "count": 3,
+                    "nameDative": "системному администрированию",
+                    "nameGenitive": "системного администрирования",
+                    "nameAdjective": "",
+                    "nameProfPlural": "системных администраторов",
+                    "iconUrl": "/pix/user_icon/139.svg",
+                    "color": null,
+                    "slug": "system-administration",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 434,
+                "name": "точные и естественные науки",
+                "count": 56,
+                "nameDative": "точным и естественным наукам",
+                "nameGenitive": "точных и естественных наук",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "iconUrl": "/pix/user_icon/85.svg",
+                "color": "acid",
+                "slug": "exact-and-natural-sciences",
+                "items": [
+                  {
+                    "value": 287,
+                    "name": "биология и биотехнологии",
+                    "count": 29,
+                    "nameDative": "биологии и биотехнологиям",
+                    "nameGenitive": "биологии и биотехнологий",
+                    "nameAdjective": "биологические",
+                    "nameProfPlural": "биологов и биотехнологов",
+                    "iconUrl": "/pix/user_icon/101.svg",
+                    "color": null,
+                    "slug": "biology-and-biotechnology",
+                    "items": []
+                  },
+                  {
+                    "value": 144,
+                    "name": "математика и физика",
+                    "count": 9,
+                    "nameDative": "математике и физике",
+                    "nameGenitive": "математики и физики",
+                    "nameAdjective": "физико-математические",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/103.svg",
+                    "color": null,
+                    "slug": "physics-and-mathematics",
+                    "items": []
+                  },
+                  {
+                    "value": 150,
+                    "name": "экология и защита окружающей среды",
+                    "count": 9,
+                    "nameDative": "экологии и защите окружающей среды",
+                    "nameGenitive": "экологии и защиты окружающей среды",
+                    "nameAdjective": "",
+                    "nameProfPlural": "экологов",
+                    "iconUrl": "/pix/user_icon/105.svg",
+                    "color": null,
+                    "slug": "rubric_ecology",
+                    "items": []
+                  },
+                  {
+                    "value": 436,
+                    "name": "химия и химические технологии",
+                    "count": 6,
+                    "nameDative": "химии и химическим технологиям",
+                    "nameGenitive": "химии и химических технологий",
+                    "nameAdjective": "химические",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/104.svg",
+                    "color": null,
+                    "slug": "chemistry-and-chemical-technology",
+                    "items": []
+                  },
+                  {
+                    "value": 435,
+                    "name": "география и гидрометеорология",
+                    "count": 3,
+                    "nameDative": "географии и гидрометеорологии",
+                    "nameGenitive": "географии и гидрометеорологии",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/102.svg",
+                    "color": null,
+                    "slug": "geography-and-hydrometeorology",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 50,
+                "name": "искусство и творчество",
+                "count": 91,
+                "nameDative": "искусству и творчеству",
+                "nameGenitive": "искусства и творчества",
+                "nameAdjective": "творческие",
+                "nameProfPlural": "",
+                "iconUrl": "/pix/user_icon/84.svg",
+                "color": "blue",
+                "slug": "art-and-creativity",
+                "items": [
+                  {
+                    "value": 426,
+                    "name": "музыка и хореография",
+                    "count": 21,
+                    "nameDative": "музыке и хореографии",
+                    "nameGenitive": "музыки и хореографии",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/111.svg",
+                    "color": null,
+                    "slug": "music-and-choreography",
+                    "items": []
+                  },
+                  {
+                    "value": 427,
+                    "name": "режиссура, операторское дело",
+                    "count": 14,
+                    "nameDative": "режиссуре, операторскому делу",
+                    "nameGenitive": "режиссуры, операторского дела",
+                    "nameAdjective": "",
+                    "nameProfPlural": "режиссеров, операторов",
+                    "iconUrl": "/pix/user_icon/112.svg",
+                    "color": null,
+                    "slug": "rezhissura-operatorskoe-masterstvo",
+                    "items": []
+                  },
+                  {
+                    "value": 54,
+                    "name": "искусствоведение",
+                    "count": 13,
+                    "nameDative": "искусствоведению",
+                    "nameGenitive": "искусствоведения",
+                    "nameAdjective": "",
+                    "nameProfPlural": "искусствоведов",
+                    "iconUrl": "/pix/user_icon/108.svg",
+                    "color": null,
+                    "slug": "art",
+                    "items": []
+                  },
+                  {
+                    "value": 58,
+                    "name": "актёрское мастерство",
+                    "count": 13,
+                    "nameDative": "актёрскому мастерству",
+                    "nameGenitive": "актёрского мастерства",
+                    "nameAdjective": "театральные",
+                    "nameProfPlural": "актеров",
+                    "iconUrl": "/pix/user_icon/106.svg",
+                    "color": null,
+                    "slug": "acting-techniques",
+                    "items": []
+                  },
+                  {
+                    "value": 141,
+                    "name": "менеджмент в культуре",
+                    "count": 12,
+                    "nameDative": "менеджменту в культуре",
+                    "nameGenitive": "менеджмента в культуре",
+                    "nameAdjective": "",
+                    "nameProfPlural": "менеджеров в сфере культуры",
+                    "iconUrl": "/pix/user_icon/110.svg",
+                    "color": null,
+                    "slug": "art-management",
+                    "items": []
+                  },
+                  {
+                    "value": 56,
+                    "name": "фотография",
+                    "count": 11,
+                    "nameDative": "фотографии",
+                    "nameGenitive": "фотографии",
+                    "nameAdjective": "",
+                    "nameProfPlural": "фотографов",
+                    "iconUrl": "/pix/user_icon/113.svg",
+                    "color": null,
+                    "slug": "photo",
+                    "items": []
+                  },
+                  {
+                    "value": 428,
+                    "name": "живопись и скульптура",
+                    "count": 7,
+                    "nameDative": "живописи и скульптуре",
+                    "nameGenitive": "живописи и скульптуры",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/107.svg",
+                    "color": null,
+                    "slug": "painting-and-sculpture",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 8,
+                "name": "безопасность и военное дело",
+                "count": 24,
+                "nameDative": "безопасности и военному делу",
+                "nameGenitive": "безопасности и военного дела",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "iconUrl": "/pix/user_icon/89.svg",
+                "color": "plum",
+                "slug": "army-and-security",
+                "items": [
+                  {
+                    "value": 308,
+                    "name": "безопасность",
+                    "count": 15,
+                    "nameDative": "безопасности",
+                    "nameGenitive": "безопасности",
+                    "nameAdjective": "",
+                    "nameProfPlural": "специалистов по безопасности",
+                    "iconUrl": "/pix/user_icon/156.svg",
+                    "color": null,
+                    "slug": "job-safety",
+                    "items": []
+                  },
+                  {
+                    "value": 9,
+                    "name": "военное дело, госбезопасность",
+                    "count": 9,
+                    "nameDative": "военному делу, государственной безопасности",
+                    "nameGenitive": "военного дела, государственной безопасности",
+                    "nameAdjective": "военные",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/91.svg",
+                    "color": null,
+                    "slug": "military-science",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 116,
+                "name": "сфера услуг",
+                "count": 37,
+                "nameDative": "услуг",
+                "nameGenitive": "услуг",
+                "nameAdjective": "",
+                "nameProfPlural": "специалистов сферы услуг",
+                "iconUrl": "/pix/user_icon/88.svg",
+                "color": "plum",
+                "slug": "services",
+                "items": [
+                  {
+                    "value": 265,
+                    "name": "кулинария и кондитерское дело",
+                    "count": 8,
+                    "nameDative": "кулинарии и кондитерскому делу",
+                    "nameGenitive": "кулинарии и кондитерского дела",
+                    "nameAdjective": "кулинарные",
+                    "nameProfPlural": "поваров",
+                    "iconUrl": "/pix/user_icon/92.svg",
+                    "color": null,
+                    "slug": "cooking",
+                    "items": []
+                  },
+                  {
+                    "value": 137,
+                    "name": "управление техникой",
+                    "count": 6,
+                    "nameDative": "управлению техникой",
+                    "nameGenitive": "управления техникой",
+                    "nameAdjective": "",
+                    "nameProfPlural": "пилотов",
+                    "iconUrl": "/pix/user_icon/97.svg",
+                    "color": null,
+                    "slug": "pilotage",
+                    "items": []
+                  },
+                  {
+                    "value": 34,
+                    "name": "макияж",
+                    "count": 6,
+                    "nameDative": "макияжу",
+                    "nameGenitive": "макияжа",
+                    "nameAdjective": "",
+                    "nameProfPlural": "визажистов",
+                    "iconUrl": "/pix/user_icon/93.svg",
+                    "color": null,
+                    "slug": "makeup",
+                    "items": []
+                  },
+                  {
+                    "value": 134,
+                    "name": "управление транспортом",
+                    "count": 5,
+                    "nameDative": "управлению транспортом",
+                    "nameGenitive": "управления транспортом",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/154.svg",
+                    "color": "plum",
+                    "slug": "transport",
+                    "items": []
+                  },
+                  {
+                    "value": 256,
+                    "name": "ЖКХ и управление недвижимостью",
+                    "count": 3,
+                    "nameDative": "ЖКХ и управлению недвижимостью",
+                    "nameGenitive": "ЖКХ и управления недвижимостью",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": "/pix/user_icon/100.svg",
+                    "color": null,
+                    "slug": "realty-management",
+                    "items": []
+                  },
+                  {
+                    "value": 31,
+                    "name": "парикмахерское дело",
+                    "count": 3,
+                    "nameDative": "парикмахерскому делу",
+                    "nameGenitive": "парикмахерского дела",
+                    "nameAdjective": "",
+                    "nameProfPlural": "парикмахеров",
+                    "iconUrl": "/pix/user_icon/96.svg",
+                    "color": null,
+                    "slug": "barber",
+                    "items": []
+                  },
+                  {
+                    "value": 258,
+                    "name": "ремонт автотранспорта",
+                    "count": 2,
+                    "nameDative": "ремонту автотранспорта",
+                    "nameGenitive": "ремонта автотранспорта",
+                    "nameAdjective": "",
+                    "nameProfPlural": "автомехаников и автослесарей",
+                    "iconUrl": "/pix/user_icon/98.svg",
+                    "color": null,
+                    "slug": "autoservice",
+                    "items": []
+                  },
+                  {
+                    "value": 135,
+                    "name": "автошколы",
+                    "count": 1,
+                    "nameDative": "автошколам",
+                    "nameGenitive": "автошкол",
+                    "nameAdjective": "",
+                    "nameProfPlural": "водителей",
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "driving-schools",
+                    "items": []
+                  },
+                  {
+                    "value": 136,
+                    "name": "бортпроводники",
+                    "count": 1,
+                    "nameDative": "бортпроводникам",
+                    "nameGenitive": "бортпроводников",
+                    "nameAdjective": "",
+                    "nameProfPlural": "бортпроводников",
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "bortprovodniki",
+                    "items": []
+                  },
+                  {
+                    "value": 269,
+                    "name": "сомелье",
+                    "count": 1,
+                    "nameDative": "",
+                    "nameGenitive": "сомелье",
+                    "nameAdjective": "",
+                    "nameProfPlural": "сомелье",
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "sommelier",
+                    "items": []
+                  },
+                  {
+                    "value": 30,
+                    "name": "маникюр и педикюр",
+                    "count": 1,
+                    "nameDative": "маникюру и педикюру",
+                    "nameGenitive": "маникюра и педикюра",
+                    "nameAdjective": "",
+                    "nameProfPlural": "мастеров маникюра и педикюра",
+                    "iconUrl": "/pix/user_icon/94.svg",
+                    "color": null,
+                    "slug": "nails",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 101,
+                "name": "развитие личности",
+                "count": 3,
+                "nameDative": "развитию личности",
+                "nameGenitive": "развития личности",
+                "nameAdjective": "",
+                "nameProfPlural": "",
+                "iconUrl": null,
+                "color": null,
+                "slug": "personal-development",
+                "items": [
+                  {
+                    "value": 105,
+                    "name": "публичные выступления",
+                    "count": 2,
+                    "nameDative": "публичным выступлениям",
+                    "nameGenitive": "публичных выступлений",
+                    "nameAdjective": "",
+                    "nameProfPlural": "ораторов",
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "oratory",
+                    "items": []
+                  },
+                  {
+                    "value": 102,
+                    "name": "развитие навыков",
+                    "count": 1,
+                    "nameDative": "развитию навыков",
+                    "nameGenitive": "развития навыков",
+                    "nameAdjective": "",
+                    "nameProfPlural": "",
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "soft-skills",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "value": 36,
+                "name": "иностранные языки",
+                "count": 1,
+                "nameDative": "иностранным языкам",
+                "nameGenitive": "иностранных языков",
+                "nameAdjective": "",
+                "nameProfPlural": "переводчиков и преподавателей иностранного языка",
+                "iconUrl": null,
+                "color": null,
+                "slug": "foreign-languages",
+                "items": [
+                  {
+                    "value": 205,
+                    "name": "китайский язык",
+                    "count": 1,
+                    "nameDative": "китайскому языку",
+                    "nameGenitive": "китайского языка",
+                    "nameAdjective": null,
+                    "nameProfPlural": null,
+                    "iconUrl": null,
+                    "color": null,
+                    "slug": "rubric_chinese",
+                    "items": []
+                  }
+                ]
+              }
+            ],
+            "institutionTypes": [
+              {
+                "value": 5,
+                "name": "Учебный центр",
+                "count": 938
+              },
+              {
+                "value": 1,
+                "name": "Вуз",
+                "count": 845
+              },
+              {
+                "value": 2,
+                "name": "Колледж",
+                "count": 324
+              }
+            ],
+            "compilations": [
+              {
+                "value": 15,
+                "name": "Востребованные профессии",
+                "count": 409,
+                "iconUrl": "/pix/profession/profession_compilation_15.webp",
+                "slug": "in-demand"
+              },
+              {
+                "value": 5,
+                "name": "Перспективные профессии",
+                "count": 352,
+                "iconUrl": "/pix/profession/profession_compilation_5.webp",
+                "slug": "promising"
+              },
+              {
+                "value": 2,
+                "name": "Полезные профессии",
+                "count": 244,
+                "iconUrl": "/pix/profession/profession_compilation_2.webp",
+                "slug": "useful"
+              },
+              {
+                "value": 1,
+                "name": "Высокооплачиваемые профессии",
+                "count": 189,
+                "iconUrl": "/pix/profession/profession_compilation_1.webp",
+                "slug": "highly-paid"
+              },
+              {
+                "value": 10,
+                "name": "Профессии после 11 класса",
+                "count": 136,
+                "iconUrl": "/pix/profession/profession_compilation_10.webp",
+                "slug": "after-11"
+              },
+              {
+                "value": 4,
+                "name": "Новые профессии",
+                "count": 79,
+                "iconUrl": "/pix/profession/profession_compilation_4.webp",
+                "slug": "new"
+              },
+              {
+                "value": 11,
+                "name": "Профессии человек-человек",
+                "count": 60,
+                "iconUrl": "/pix/profession/profession_compilation_11.webp",
+                "slug": "spiderman"
+              },
+              {
+                "value": 14,
+                "name": "Удаленные профессии",
+                "count": 56,
+                "iconUrl": "/pix/profession/profession_compilation_14.webp",
+                "slug": "remote"
+              },
+              {
+                "value": 7,
+                "name": "Профессии будущего",
+                "count": 46,
+                "iconUrl": "/pix/profession/profession_compilation_7.webp",
+                "slug": "future"
+              },
+              {
+                "value": 8,
+                "name": "Профессии для девушек",
+                "count": 37,
+                "iconUrl": "/pix/profession/profession_compilation_8.webp",
+                "slug": "woman"
+              },
+              {
+                "value": 9,
+                "name": "Профессии после 9 класса",
+                "count": 26,
+                "iconUrl": "/pix/profession/profession_compilation_9.webp",
+                "slug": "after-9"
+              },
+              {
+                "value": 12,
+                "name": "Рабочие профессии",
+                "count": 19,
+                "iconUrl": "/pix/profession/profession_compilation_12.webp",
+                "slug": "blue-collar"
+              },
+              {
+                "value": 13,
+                "name": "Социальные профессии",
+                "count": 18,
+                "iconUrl": "/pix/profession/profession_compilation_13.webp",
+                "slug": "social-profession"
+              },
+              {
+                "value": 3,
+                "name": "Военные профессии",
+                "count": 16,
+                "iconUrl": "/pix/profession/profession_compilation_3.webp",
+                "slug": "military"
+              }
+            ]
+          },
+          "seo": {
+            "h1": "Профессии",
+            "description": "Профессии — поиск подходящих профессий"
+          }
+        },
+        "entityByFriendlyUrl": null,
+        "loading": "fulfilled",
+        "currentRequestId": null,
+        "error": null
+      },
+      "defineLocationNoticeSlice": {
+        "isShowLocationNotice": true
+      }
+    }
+  },
+  "page": "/prof",
+  "query": {},
+  "buildId": "cMQJmMyd82T5ApDIUTKFN",
+  "isFallback": false,
+  "isExperimentalCompile": false,
+  "dynamicIds": [
+    56836,
+    38744
+  ],
+  "gip": true,
+  "appGip": true,
+  "scriptLoader": []
+}
