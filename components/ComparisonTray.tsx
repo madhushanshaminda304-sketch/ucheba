@@ -3,17 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { useApp } from '@/lib/AppContext';
-import { INSTITUTIONS } from '@/lib/data';
 import { Scale, X, ArrowRight } from 'lucide-react';
 
 export default function ComparisonTray() {
-  const { compared, toggleCompare, clearCompared } = useApp();
+  const { savedCompared, toggleCompare, clearCompared } = useApp();
 
-  if (compared.length === 0) return null;
-
-  const comparedInstitutions = compared
-    .map(id => INSTITUTIONS.find(i => i.id === id))
-    .filter(Boolean);
+  if (savedCompared.length === 0) return null;
 
   return (
     <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-2xl bg-slate-900/95 backdrop-blur-md text-white rounded-2xl shadow-2xl p-3 md:p-4 border border-slate-700/60 flex items-center justify-between gap-4 animate-in slide-in-from-bottom duration-300">
@@ -22,19 +17,19 @@ export default function ComparisonTray() {
           <Scale className="w-5 h-5" />
         </div>
         <div className="hidden sm:block">
-          <div className="text-xs font-semibold uppercase tracking-wider text-slate-300">Сравнение вузов</div>
-          <div className="text-xs text-slate-400">Выбрано {compared.length} из 4</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-slate-300">Сравнение</div>
+          <div className="text-xs text-slate-400">Выбрано {savedCompared.length} из 4</div>
         </div>
 
         <div className="flex items-center gap-2">
-          {comparedInstitutions.map(inst => (
+          {savedCompared.map(item => (
             <div
-              key={inst!.id}
+              key={item.id}
               className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-800 rounded-lg border border-slate-700 text-xs shrink-0"
             >
-              <span className="font-medium truncate max-w-[120px]">{inst!.abbreviation}</span>
+              <span className="font-medium truncate max-w-[120px]">{item.title || item.id}</span>
               <button
-                onClick={() => toggleCompare(inst!.id)}
+                onClick={() => toggleCompare(item.id)}
                 className="text-slate-400 hover:text-white p-0.5"
                 title="Удалить из сравнения"
               >

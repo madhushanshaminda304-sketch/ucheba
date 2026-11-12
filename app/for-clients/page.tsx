@@ -138,10 +138,25 @@ export default function ForClientsPage() {
           </div>
 
           {sent ? (
-            <div className="p-6 bg-emerald-50 rounded-2xl text-center space-y-2 text-emerald-900">
-              <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
-              <h4 className="font-bold text-base">Заявка успешно отправлена!</h4>
-              <p className="text-xs">Наш менеджер свяжется с вашей приёмной комиссией в течение 1 рабочего дня.</p>
+            <div className="p-6 bg-blue-50 rounded-2xl text-center space-y-3 text-slate-900 animate-in fade-in">
+              <CheckCircle2 className="w-10 h-10 text-brand-600 mx-auto" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-blue-100">
+                <span>Демонстрационный режим</span>
+              </div>
+              <h4 className="font-bold text-base">Демо-заявка сформирована</h4>
+              <p className="text-xs text-slate-600 max-w-sm mx-auto">
+                В демонстрационном режиме данные сохранены локально на устройстве. Для официального подключения учебного заведения напишите в B2B-отдел:
+              </p>
+              <div className="p-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-800 space-y-1">
+                <div>Отдел по работе с вузами: <strong>clients@ucheba.ru</strong></div>
+                <div>Телефон для партнеров: <strong>+7 (495) 797-84-42</strong></div>
+              </div>
+              <button
+                onClick={() => setSent(false)}
+                className="text-xs font-bold text-brand-600 hover:underline pt-2 block mx-auto"
+              >
+                ← Заполнить снова
+              </button>
             </div>
           ) : (
             <form
@@ -149,7 +164,7 @@ export default function ForClientsPage() {
                 e.preventDefault();
                 if (instName && contactName && email) {
                   setSent(true);
-                  showToast('Заявка учебного заведения принята! Менеджер свяжется с вами.', 'success');
+                  showToast('Демо-заявка зафиксирована локально. Контакт: clients@ucheba.ru', 'info');
                 }
               }}
               className="space-y-4"

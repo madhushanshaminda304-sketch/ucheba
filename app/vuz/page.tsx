@@ -87,19 +87,19 @@ function VuzCatalogContent() {
       // Features
       if (hasHostelOnly && !inst.hasHostel) return false;
       if (hasMilitaryOnly && !inst.isMilitaryChair) return false;
-      if (onlyBudget && inst.budgetPlacesCount <= 0) return false;
+      if (onlyBudget && (inst.budgetPlacesCount === null || inst.budgetPlacesCount <= 0)) return false;
 
       // Scores & Tuition
-      if (inst.minBudgetScore > maxScoreFilter) return false;
-      if (inst.tuitionFeeFrom > maxTuitionFilter) return false;
+      if (inst.minBudgetScore !== null && inst.minBudgetScore > maxScoreFilter) return false;
+      if (inst.tuitionFeeFrom !== null && inst.tuitionFeeFrom > maxTuitionFilter) return false;
 
       return true;
     }).sort((a, b) => {
       if (sortBy === 'raex') return (a.ratingRaex || 99) - (b.ratingRaex || 99);
-      if (sortBy === 'scoreDesc') return b.minBudgetScore - a.minBudgetScore;
-      if (sortBy === 'scoreAsc') return a.minBudgetScore - b.minBudgetScore;
-      if (sortBy === 'tuitionAsc') return a.tuitionFeeFrom - b.tuitionFeeFrom;
-      if (sortBy === 'placesDesc') return b.budgetPlacesCount - a.budgetPlacesCount;
+      if (sortBy === 'scoreDesc') return (b.minBudgetScore ?? 0) - (a.minBudgetScore ?? 0);
+      if (sortBy === 'scoreAsc') return (a.minBudgetScore ?? 999) - (b.minBudgetScore ?? 999);
+      if (sortBy === 'tuitionAsc') return (a.tuitionFeeFrom ?? 9999999) - (b.tuitionFeeFrom ?? 9999999);
+      if (sortBy === 'placesDesc') return (b.budgetPlacesCount ?? 0) - (a.budgetPlacesCount ?? 0);
       return 0;
     });
   }, [search, cityFilter, selectedTag, onlyBudget, hasHostelOnly, hasMilitaryOnly, maxScoreFilter, maxTuitionFilter, sortBy]);
@@ -412,15 +412,21 @@ function VuzCatalogContent() {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 border-y border-slate-100 bg-slate-50/50 rounded-xl px-4">
                     <div>
                       <span className="text-[11px] text-slate-400 block font-medium">Проходной балл (бюджет)</span>
-                      <span className="text-sm font-black text-slate-800">от {inst.minBudgetScore}</span>
+                      <span className="text-sm font-black text-slate-800">
+                        {inst.minBudgetScore !== null ? `от ${inst.minBudgetScore}` : 'Уточняется'}
+                      </span>
                     </div>
                     <div>
                       <span className="text-[11px] text-slate-400 block font-medium">Стоимость обучения</span>
-                      <span className="text-sm font-black text-slate-800">от {(inst.tuitionFeeFrom / 1000).toFixed(0)} тыс. ₽</span>
+                      <span className="text-sm font-black text-slate-800">
+                        {inst.tuitionFeeFrom !== null ? `от ${(inst.tuitionFeeFrom / 1000).toFixed(0)} тыс. ₽` : 'Уточняется'}
+                      </span>
                     </div>
                     <div>
                       <span className="text-[11px] text-slate-400 block font-medium">Бюджетных мест</span>
-                      <span className="text-sm font-black text-slate-800">{inst.budgetPlacesCount}</span>
+                      <span className="text-sm font-black text-slate-800">
+                        {inst.budgetPlacesCount !== null ? `${inst.budgetPlacesCount}` : '—'}
+                      </span>
                     </div>
                     <div>
                       <span className="text-[11px] text-slate-400 block font-medium">Программ обучения</span>

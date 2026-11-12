@@ -28,7 +28,7 @@ export default function AdmissionSupportPage() {
     e.preventDefault();
     if (name && phone) {
       setSubmitted(true);
-      showToast('Ваша заявка принята! Эксперт свяжется с вами в течение 15 минут.', 'success');
+      showToast('Демо-заявка сформирована (сохранена локально). Контакт: +7 (800) 200-84-42', 'info');
     }
   };
 
@@ -122,14 +122,27 @@ export default function AdmissionSupportPage() {
             {/* Quick Consultation Form Card */}
             <div className="lg:col-span-5 bg-white text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100">
               {submitted ? (
-                <div className="text-center py-8 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
-                    <CheckCircle2 className="w-8 h-8" />
+                <div className="text-center py-6 space-y-4 animate-in fade-in">
+                  <div className="w-14 h-14 rounded-full bg-blue-100 text-brand-600 mx-auto flex items-center justify-center">
+                    <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">Заявка успешно принята!</h3>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">
+                    <span>Демонстрационный режим</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900">Форма зафиксирована локально</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Наш ведущий эксперт свяжется с вами в течение 15 минут для проведения бесплатной первичной диагностики ваших шансов.
+                    В данном экспериментальном интерфейсе персональные данные не отправляются на внешний сервер. Для официальной консультации используйте прямые контакты:
                   </p>
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 space-y-1">
+                    <div>Информационный центр: <strong>+7 (800) 200-84-42</strong></div>
+                    <div>Email приёмной комиссии: <strong>priem@ucheba.ru</strong></div>
+                  </div>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="text-xs font-bold text-brand-600 hover:underline pt-2 block mx-auto"
+                  >
+                    ← Заполнить другую заявку
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">

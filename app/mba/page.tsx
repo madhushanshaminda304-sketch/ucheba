@@ -122,7 +122,7 @@ export default function MbaPage() {
                 </div>
 
                 <button
-                  onClick={() => showToast(`Заявка на программу ${prog.title} успешно зарегистрирована. Консультант свяжется с вами.`, 'success')}
+                  onClick={() => showToast(`Демо-режим: запрос по программе «${prog.title}» зафиксирован локально. Контакты бизнес-школы: mba@ucheba.ru`, 'info')}
                   className="px-6 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md shadow-amber-600/20 transition-all"
                 >
                   Запросить учебный план

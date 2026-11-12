@@ -69,11 +69,11 @@ export default function ComparePage() {
       ),
     },
     {
-      title: 'Проходной балл на бюджет',
+      title: 'Проходной балл на бюджет (2024 г.)',
       key: 'minBudgetScore',
       render: (inst: any) => (
         <span className="font-black text-brand-700 text-sm">
-          от {inst.minBudgetScore} баллов
+          {inst.minBudgetScore !== null ? `от ${inst.minBudgetScore} б.` : 'Не указан'}
         </span>
       ),
     },
@@ -82,7 +82,7 @@ export default function ComparePage() {
       key: 'tuitionFeeFrom',
       render: (inst: any) => (
         <span className="font-bold text-slate-900 text-xs sm:text-sm">
-          от {(inst.tuitionFeeFrom / 1000).toFixed(0)} 000 ₽
+          {inst.tuitionFeeFrom !== null ? `от ${(inst.tuitionFeeFrom / 1000).toFixed(0)} 000 ₽/год` : 'Уточняется'}
         </span>
       ),
     },
@@ -91,7 +91,7 @@ export default function ComparePage() {
       key: 'budgetPlacesCount',
       render: (inst: any) => (
         <span className="font-bold text-slate-800 text-xs">
-          {inst.budgetPlacesCount} мест
+          {inst.budgetPlacesCount !== null ? `${inst.budgetPlacesCount} мест` : 'По запросу'}
         </span>
       ),
     },

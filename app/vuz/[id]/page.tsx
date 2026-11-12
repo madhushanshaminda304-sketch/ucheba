@@ -141,15 +141,21 @@ export default function UniversityDetailPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
             <div>
               <span className="text-xs text-slate-500 block font-medium">Проходной балл (бюджет)</span>
-              <span className="text-xl font-black text-slate-900">от {inst.minBudgetScore}</span>
+              <span className="text-xl font-black text-slate-900">
+                {inst.minBudgetScore !== null ? `от ${inst.minBudgetScore}` : 'Уточняется'}
+              </span>
             </div>
             <div>
               <span className="text-xs text-slate-500 block font-medium">Стоимость обучения</span>
-              <span className="text-xl font-black text-slate-900">от {(inst.tuitionFeeFrom / 1000).toFixed(0)} тыс. ₽</span>
+              <span className="text-xl font-black text-slate-900">
+                {inst.tuitionFeeFrom !== null ? `от ${(inst.tuitionFeeFrom / 1000).toFixed(0)} тыс. ₽` : 'Уточняется'}
+              </span>
             </div>
             <div>
               <span className="text-xs text-slate-500 block font-medium">Бюджетных мест</span>
-              <span className="text-xl font-black text-slate-900">{inst.budgetPlacesCount}</span>
+              <span className="text-xl font-black text-slate-900">
+                {inst.budgetPlacesCount !== null ? inst.budgetPlacesCount : '—'}
+              </span>
             </div>
             <div>
               <span className="text-xs text-slate-500 block font-medium">Программ высшего образования</span>
@@ -360,7 +366,7 @@ export default function UniversityDetailPage() {
                       <div className="text-right sm:text-right">
                         <span className="text-xs text-slate-400 block font-medium">Стоимость в год</span>
                         <span className="text-lg font-black text-slate-800">
-                          {(prog.tuitionPerYear / 1000).toFixed(0)} тыс. ₽
+                          {prog.tuitionPerYear !== null ? `${(prog.tuitionPerYear / 1000).toFixed(0)} тыс. ₽` : 'Уточняется'}
                         </span>
                       </div>
                     </div>
@@ -373,11 +379,15 @@ export default function UniversityDetailPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 bg-slate-50 rounded-xl text-xs">
                       <div>
                         <span className="text-slate-400 block text-[11px]">Балл на бюджет:</span>
-                        <span className="font-bold text-slate-800 text-sm">{prog.minScoreBudget} баллов</span>
+                        <span className="font-bold text-slate-800 text-sm">
+                          {prog.minScoreBudget !== null ? `${prog.minScoreBudget} баллов` : 'Не указан'}
+                        </span>
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[11px]">Бюджетных мест:</span>
-                        <span className="font-bold text-slate-800 text-sm">{prog.budgetPlaces} мест</span>
+                        <span className="font-bold text-slate-800 text-sm">
+                          {prog.budgetPlaces !== null ? `${prog.budgetPlaces} мест` : 'По запросу'}
+                        </span>
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[11px]">Экзамены ЕГЭ:</span>

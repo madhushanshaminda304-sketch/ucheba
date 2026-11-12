@@ -2,6 +2,23 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.0] - 2026-11-12 — Honest Guest Workspace, Relational Data Foundation & Integrity Verification
+### Added
+- **Modular Data Architecture (`lib/data/`)**: Decomposed monolithic data into 8 domain-specific modules (`reference.ts`, `institutions.ts`, `programs.ts`, `careers.ts`, `events.ts`, `interestQuestions.ts`, `lookup.ts`, `integrity.ts`) with backward-compatible re-exports.
+- **Automated Data Integrity Audit (`lib/data/integrity.ts`)**: Built-in verification engine detecting duplicate IDs, broken relational references, invalid exam bounds, negative tuition amounts, and broken date formats.
+- **Typed Entity Persistence (`SavedEntityRef`)**: Isolated saved entities with composite keys `{type, id, title, subtitle}`, completely preventing ID collisions between universities, degree programs, and colleges. Saving a program bookmarks that specific program.
+- **Versioned Local Workspace (`WorkspaceV2`)**: Robust storage engine with schema versioning, strict code-level exam score bounds (0–100), automated pre-migration backups (`ucheba_workspace_backup_*`), and graceful corrupt data recovery with user notifications.
+- **Curriculum Authenticity Badges**: Added explicit `Официальный` and `Примерный / иллюстративный` badges for academic curricula on `/program/[id]`, displaying curriculum only when verified program data exists.
+
+### Changed
+- **Replaced Fake Authentication (`components/AuthModal.tsx`)**: Completely removed simulated SMS codes (4829), fake password prompts, and simulated social auth. Replaced with an honest Guest Workspace modal explaining local device storage, storage stats, profile naming, and data reset.
+- **Honest Admission Threshold Comparisons (`/admission-tracker`, `/profile`)**: Removed misleading "high admission chance" guarantees and algorithmically impossible probability formulas. Replaced with factual historical comparisons against 2024 admission cutoffs with clear disclaimers that 2026 applicant pools determine current results.
+- **Semantic Exam Scores**: Refactored unentered exam scores from `0` to `null`. Missing scores now honestly indicate "Недостаточно данных для сопоставления" across profile, tracker, and comparison views.
+- **Demo State Form Handlers**: Replaced promises of instant callbacks and consultation submissions across `/admission-support`, `/for-clients`, `/for-teachers`, `/courses`, `/abroad`, `/mba`, and `/events` with honest demo state notifications and direct contact details (hotline and emails).
+- **Curriculum Isolation**: Removed the shared computer science curriculum from unrelated degree programs (economics, medicine, architecture); unverified programs now show an informative fallback directing to the university admissions office.
+
+---
+
 ## [2.1.0] - 2026-11-11 — Full Portal Analysis, Mobile Optimization & Notification Upgrades
 ### Added
 - **Global Floating Toast System (`components/Toast.tsx`)**: Replaced 100% of thread-blocking browser `window.alert()` popups with responsive, auto-dismissing floating toasts with success, info, and error status icons and accessibility roles.

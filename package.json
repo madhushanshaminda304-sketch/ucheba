@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:integrity": "npx -y tsx -e \"import { runDataIntegrityAudit } from './lib/data/integrity'; const r = runDataIntegrityAudit(); if (!r.valid) { console.error(r.errors); process.exit(1); } console.log('Data valid:', r.counts);\""
   },
   "dependencies": {
     "clsx": "^2.1.1",

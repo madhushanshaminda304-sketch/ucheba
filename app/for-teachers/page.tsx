@@ -39,7 +39,7 @@ export default function ForTeachersPage() {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    showToast('Заявка на подключение к кабинету репетитора зарегистрирована!', 'success');
+    showToast('Демо-анкета сохранена локально. Контакт: teachers@ucheba.ru', 'info');
   };
 
   const checkDemoAnswer = (e: React.FormEvent) => {
@@ -364,12 +364,21 @@ export default function ForTeachersPage() {
           </div>
 
           {submitted ? (
-            <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
-              <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
-              <h3 className="text-base font-bold text-emerald-900">Анкета успешно принята!</h3>
-              <p className="text-xs text-emerald-800 leading-relaxed">
-                Мы отправили ссылку для входа в кабинет преподавателя на {formData.email || formData.phone}. Добро пожаловать на Учёба.ру!
+            <div className="p-6 rounded-2xl bg-blue-50 border border-blue-200 text-center space-y-3 animate-in fade-in">
+              <CheckCircle2 className="w-10 h-10 text-brand-600 mx-auto" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-blue-100">
+                <span>Демонстрационный режим</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900">Демо-анкета зафиксирована локально</h3>
+              <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto">
+                В данном прототипе внешняя рассылка отключена. Для официального подключения преподавателей напишите в отдел по работе с педагогами: <strong>teachers@ucheba.ru</strong>
               </p>
+              <button
+                onClick={() => setSubmitted(false)}
+                className="text-xs font-bold text-brand-600 hover:underline pt-2 block mx-auto"
+              >
+                ← Заполнить снова
+              </button>
             </div>
           ) : (
             <form onSubmit={handleRegister} className="space-y-4">

@@ -2,22 +2,40 @@
 
 import React, { useState, useEffect } from 'react';
 import { useApp } from '@/lib/AppContext';
-import { X, Phone, Mail, Lock, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
+import { 
+  X, 
+  Laptop, 
+  ShieldCheck, 
+  CheckCircle2, 
+  Heart, 
+  Scale, 
+  Sparkles, 
+  RotateCcw,
+  Info,
+  Lock
+} from 'lucide-react';
 
 export default function AuthModal() {
-  const { isAuthModalOpen, setIsAuthModalOpen, login } = useApp();
-  const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
-  const [authMethod, setAuthMethod] = useState<'phone' | 'email'>('phone');
-  
-  // Form fields
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [smsCode, setSmsCode] = useState('');
-  const [isSmsSent, setIsSmsSent] = useState(false);
-  const [error, setError] = useState('');
-  const [successMsg, setSuccessMsg] = useState('');
+  const { 
+    isAuthModalOpen, 
+    setIsAuthModalOpen, 
+    user, 
+    updateDisplayName, 
+    resetWorkspace,
+    savedFavorites,
+    savedCompared,
+    userScores,
+    showToast
+  } = useApp();
+
+  const [nameInput, setNameInput] = useState(user.name || 'Гость');
+  const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    if (user.name) {
+      setNameInput(user.name);
+    }
+  }, [user.name]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -37,70 +55,36 @@ export default function AuthModal() {
 
   if (!isAuthModalOpen) return null;
 
-  const handleSendSms = (e: React.FormEvent) => {
+  const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!phone.trim() || phone.length < 10) {
-      setError('Введите корректный номер телефона РФ');
-      return;
+    const trimmed = nameInput.trim();
+    if (trimmed) {
+      updateDisplayName(trimmed);
+      setIsSaved(true);
+      setTimeout(() => {
+        setIsSaved(false);
+        setIsAuthModalOpen(false);
+      }, 700);
     }
-    setError('');
-    setIsSmsSent(true);
-    setSmsCode('4829'); // Pre-fill mock code for seamless UX
   };
 
-  const handleVerifySms = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (smsCode !== '4829' && smsCode.length !== 4) {
-      setError('Неверный проверочный код из SMS');
-      return;
-    }
-    setError('');
-    const userName = name.trim() || 'Абитуриент';
-    login({ name: userName, phone: phone });
-    setSuccessMsg('Вы успешно вошли в личный кабинет!');
-    setTimeout(() => {
-      setSuccessMsg('');
+  const handleReset = () => {
+    if (confirm('Сбросить сохранённые на этом устройстве списки избранного, сравнения и баллы ЕГЭ?')) {
+      resetWorkspace();
+      setNameInput('Гость');
       setIsAuthModalOpen(false);
-      setIsSmsSent(false);
-    }, 900);
+    }
   };
 
-  const handleEmailAuth = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim() || !email.includes('@')) {
-      setError('Введите корректный адрес электронной почты');
-      return;
-    }
-    if (password.length < 6) {
-      setError('Пароль должен содержать минимум 6 символов');
-      return;
-    }
-    setError('');
-    const fallbackName = name.trim() || email.split('@')[0];
-    login({ name: fallbackName, email: email });
-    setSuccessMsg(authMode === 'login' ? 'Успешный вход!' : 'Регистрация прошла успешно!');
-    setTimeout(() => {
-      setSuccessMsg('');
-      setIsAuthModalOpen(false);
-    }, 900);
-  };
-
-  const handleSocialAuth = (provider: string) => {
-    login({ name: `${provider} Пользователь` });
-    setSuccessMsg(`Вход через ${provider} выполнен!`);
-    setTimeout(() => {
-      setSuccessMsg('');
-      setIsAuthModalOpen(false);
-    }, 800);
-  };
+  const enteredScoresCount = Object.values(userScores).filter(v => v !== null && v !== undefined).length;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden transform transition-all"
+        className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden transform transition-all"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header background pattern */}
+        {/* Header banner */}
         <div className="bg-gradient-to-r from-brand-700 via-brand-600 to-indigo-600 px-6 pt-7 pb-6 text-white relative">
           <button
             onClick={() => setIsAuthModalOpen(false)}
@@ -110,285 +94,105 @@ export default function AuthModal() {
             <X className="w-5 h-5" />
           </button>
           
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-white text-xs font-semibold mb-2">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
-            <span>Единый аккаунт абитуриента</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-semibold backdrop-blur-sm mb-3">
+            <Laptop className="w-3.5 h-3.5" />
+            <span>Локальный профиль устройства</span>
           </div>
-          
-          <h2 className="text-2xl font-black tracking-tight">
-            {authMode === 'login' ? 'Вход на Учёба.ру' : 'Регистрация абитуриента'}
-          </h2>
-          <p className="text-white/80 text-xs mt-1">
-            Сохраняйте списки вузов, отслеживайте шансы на поступление и результаты ЕГЭ
+
+          <h3 className="text-xl sm:text-2xl font-black tracking-tight">
+            Рабочее пространство абитуриента
+          </h3>
+          <p className="text-white/80 text-xs sm:text-sm mt-1">
+            Прогресс выбора программ, баллы и списки сохраняются на этом компьютере.
           </p>
         </div>
 
-        {/* Tab switchers */}
-        <div className="flex border-b border-slate-100 bg-slate-50/70">
-          <button
-            onClick={() => { setAuthMode('login'); setError(''); }}
-            className={`flex-1 py-3 text-sm font-bold transition-colors text-center border-b-2 ${
-              authMode === 'login' 
-                ? 'border-brand-600 text-brand-700 bg-white' 
-                : 'border-transparent text-slate-500 hover:text-slate-800'
-            }`}
-          >
-            Войти
-          </button>
-          <button
-            onClick={() => { setAuthMode('register'); setError(''); }}
-            className={`flex-1 py-3 text-sm font-bold transition-colors text-center border-b-2 ${
-              authMode === 'register' 
-                ? 'border-brand-600 text-brand-700 bg-white' 
-                : 'border-transparent text-slate-500 hover:text-slate-800'
-            }`}
-          >
-            Создать аккаунт
-          </button>
-        </div>
-
-        <div className="p-6 space-y-5">
-          {/* Success alert */}
-          {successMsg && (
-            <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span>{successMsg}</span>
+        {/* Content body */}
+        <div className="p-6 sm:p-8 space-y-6">
+          
+          {/* Honest Explanation Box */}
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 text-xs text-slate-600 leading-relaxed">
+            <Info className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
+            <div>
+              <strong className="text-slate-900 block font-semibold mb-0.5">Принцип приватности и хранения данных</strong>
+              В экспериментальном режиме все ваши закладки, списки сравнения и предварительные баллы хранятся исключительно в памяти браузера (<code className="font-mono text-slate-800 bg-slate-200/60 px-1 py-0.5 rounded">localStorage</code>). Пароли не требуются и не запрашиваются.
             </div>
-          )}
-
-          {/* Error alert */}
-          {error && (
-            <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
-              {error}
-            </div>
-          )}
-
-          {/* Phone vs Email Toggle */}
-          <div className="flex rounded-xl bg-slate-100 p-1">
-            <button
-              type="button"
-              onClick={() => { setAuthMethod('phone'); setIsSmsSent(false); setError(''); }}
-              className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-                authMethod === 'phone' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>По телефону</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => { setAuthMethod('email'); setError(''); }}
-              className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-                authMethod === 'email' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>По Email</span>
-            </button>
           </div>
 
-          {/* Phone Form */}
-          {authMethod === 'phone' && (
+          {/* User Display Name Form */}
+          <form onSubmit={handleSave} className="space-y-4">
             <div>
-              {!isSmsSent ? (
-                <form onSubmit={handleSendSms} className="space-y-4">
-                  {authMode === 'register' && (
-                    <div>
-                      <label className="block text-xs font-bold uppercase text-slate-600 tracking-wider mb-1.5">
-                        Ваше имя и фамилия
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Например, Анна Смирнова"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
-                        required
-                      />
-                    </div>
-                  )}
-
-                  <div>
-                    <label className="block text-xs font-bold uppercase text-slate-600 tracking-wider mb-1.5">
-                      Номер телефона
-                    </label>
-                    <div className="relative">
-                      <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-semibold text-slate-500">
-                        +7
-                      </span>
-                      <input
-                        type="tel"
-                        placeholder=" (999) 000-00-00"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 transition-all flex items-center justify-center gap-2"
-                  >
-                    <span>Получить код по SMS</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </form>
-              ) : (
-                <form onSubmit={handleVerifySms} className="space-y-4">
-                  <div>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <label className="text-xs font-bold uppercase text-slate-600 tracking-wider">
-                        Код из SMS
-                      </label>
-                      <button
-                        type="button"
-                        onClick={() => setIsSmsSent(false)}
-                        className="text-xs text-brand-600 hover:underline"
-                      >
-                        Изменить номер
-                      </button>
-                    </div>
-                    <input
-                      type="text"
-                      maxLength={4}
-                      placeholder="4829"
-                      value={smsCode}
-                      onChange={(e) => setSmsCode(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-center tracking-widest text-lg font-bold focus:outline-none focus:ring-2 focus:ring-brand-500"
-                      autoFocus
-                      required
-                    />
-                    <p className="text-[11px] text-slate-500 mt-1.5 text-center">
-                      Тестовый код подтверждения введен автоматически (4829)
-                    </p>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 transition-all"
-                  >
-                    Подтвердить и войти
-                  </button>
-                </form>
-              )}
+              <label className="text-xs font-bold text-slate-700 block uppercase tracking-wider mb-1.5">
+                Имя в профиле
+              </label>
+              <input
+                type="text"
+                value={nameInput}
+                onChange={(e) => setNameInput(e.target.value)}
+                placeholder="Например: Алексей или Абитуриент 2026"
+                maxLength={40}
+                required
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white transition-all"
+              />
+              <span className="text-[11px] text-slate-400 mt-1 block">
+                Используется для персонализации отчётов и сводок поступления
+              </span>
             </div>
-          )}
 
-          {/* Email Form */}
-          {authMethod === 'email' && (
-            <form onSubmit={handleEmailAuth} className="space-y-3.5">
-              {authMode === 'register' && (
-                <div>
-                  <label className="block text-xs font-bold uppercase text-slate-600 tracking-wider mb-1.5">
-                    Ваше имя
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Например, Михаил"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
-                    required
-                  />
-                </div>
-              )}
-
-              <div>
-                <label className="block text-xs font-bold uppercase text-slate-600 tracking-wider mb-1.5">
-                  Электронная почта
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                  <input
-                    type="email"
-                    placeholder="student@example.ru"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
-                    required
-                  />
-                </div>
+            {/* Quick Status Badges */}
+            <div className="grid grid-cols-3 gap-2.5 pt-1">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-center">
+                <Heart className="w-4 h-4 text-rose-500 mx-auto mb-1" />
+                <span className="text-xs font-bold text-slate-800 block">{savedFavorites.length}</span>
+                <span className="text-[10px] text-slate-400">в избранном</span>
               </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase text-slate-600 tracking-wider mb-1.5">
-                  Пароль
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                  <input
-                    type="password"
-                    placeholder="Минимум 6 символов"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
-                    required
-                  />
-                </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-center">
+                <Scale className="w-4 h-4 text-brand-600 mx-auto mb-1" />
+                <span className="text-xs font-bold text-slate-800 block">{savedCompared.length}</span>
+                <span className="text-[10px] text-slate-400">в сравнении</span>
               </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-center">
+                <Sparkles className="w-4 h-4 text-amber-500 mx-auto mb-1" />
+                <span className="text-xs font-bold text-slate-800 block">{enteredScoresCount}</span>
+                <span className="text-[10px] text-slate-400">баллов ЕГЭ</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="pt-2 flex items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={handleReset}
+                className="px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors inline-flex items-center gap-1.5"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>Сбросить данные</span>
+              </button>
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 transition-all"
+                className="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-95 text-white font-bold text-xs sm:text-sm shadow-md shadow-brand-600/20 transition-all inline-flex items-center gap-1.5"
               >
-                {authMode === 'login' ? 'Войти в аккаунт' : 'Зарегистрироваться'}
+                {isSaved ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-300" />
+                    <span>Сохранено!</span>
+                  </>
+                ) : (
+                  <span>Сохранить имя</span>
+                )}
               </button>
-            </form>
-          )}
+            </div>
+          </form>
 
-          {/* Social login divider */}
-          <div className="relative flex items-center justify-center my-4">
-            <div className="border-t border-slate-200 w-full" />
-            <span className="bg-white px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 shrink-0">
-              или через сервис
+          {/* Architecture readiness disclaimer */}
+          <div className="pt-4 border-t border-slate-100 flex items-start gap-2.5 text-[11px] text-slate-400">
+            <Lock className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
+            <span>
+              <strong>Готовность к единой авторизации:</strong> модуль спроектирован с возможностью прямого подключения провайдеров ЕСИА (Госуслуги) и VK ID после завершения этапа интеграции с федеральными сервисами.
             </span>
           </div>
 
-          {/* Social login options */}
-          <div className="grid grid-cols-3 gap-2.5">
-            <button
-              type="button"
-              onClick={() => handleSocialAuth('VK ID')}
-              className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-slate-200 hover:border-blue-400 hover:bg-blue-50/50 transition-all group"
-            >
-              <div className="w-7 h-7 rounded-lg bg-[#0077FF] text-white flex items-center justify-center font-black text-xs group-hover:scale-105 transition-transform">
-                VK
-              </div>
-              <span className="text-[11px] font-semibold text-slate-600 mt-1">VK ID</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleSocialAuth('Госуслуги')}
-              className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-slate-200 hover:border-blue-600 hover:bg-blue-50/50 transition-all group"
-            >
-              <div className="w-7 h-7 rounded-lg bg-[#0C58A2] text-white flex items-center justify-center font-black text-[10px] group-hover:scale-105 transition-transform">
-                ГУ
-              </div>
-              <span className="text-[11px] font-semibold text-slate-600 mt-1">Госуслуги</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleSocialAuth('Яндекс')}
-              className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-slate-200 hover:border-red-400 hover:bg-red-50/50 transition-all group"
-            >
-              <div className="w-7 h-7 rounded-lg bg-[#FC3F1D] text-white flex items-center justify-center font-black text-xs group-hover:scale-105 transition-transform">
-                Я
-              </div>
-              <span className="text-[11px] font-semibold text-slate-600 mt-1">Яндекс ID</span>
-            </button>
-          </div>
-
-          <p className="text-[10px] text-slate-400 text-center leading-normal">
-            Авторизуясь, вы соглашаетесь с условиями{' '}
-            <a href="/agreement" className="text-brand-600 underline" target="_blank" rel="noreferrer">
-              Пользовательского соглашения
-            </a>{' '}
-            и обработки персональных данных (152-ФЗ).
-          </p>
         </div>
       </div>
     </div>

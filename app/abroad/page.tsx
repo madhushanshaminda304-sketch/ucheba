@@ -164,7 +164,7 @@ export default function AbroadPage() {
                 </div>
 
                 <button
-                  onClick={() => showToast(`Заявка на консультацию по поступлению в ${prog.institution} принята! Мы поможем подготовить пакет документов.`, 'success')}
+                  onClick={() => showToast(`Демо-режим: запрос по стипендии в ${prog.institution} зафиксирован. Ознакомьтесь с требованиями на сайте фонда.`, 'info')}
                   className="px-5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs shadow-sm transition-all"
                 >
                   Оформить заявку на грант

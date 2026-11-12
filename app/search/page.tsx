@@ -181,7 +181,7 @@ function SearchResultsContent() {
                     {vuz.name}
                   </h3>
                   <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
-                    <span>Бюджет от: <strong className="text-brand-600">{vuz.minBudgetScore}</strong> баллов</span>
+                    <span>Бюджет от: <strong className="text-brand-600">{vuz.minBudgetScore !== null ? `${vuz.minBudgetScore} б.` : 'Уточняется'}</strong></span>
                     <span>{vuz.programsCount} программ</span>
                   </div>
                 </Link>

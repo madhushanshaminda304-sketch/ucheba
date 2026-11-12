@@ -161,7 +161,9 @@ export default function ProfessionDetailPage() {
 
                   <div className="text-right">
                     <span className="text-xs text-slate-400 block font-medium">Балл на бюджет</span>
-                    <span className="text-lg font-black text-slate-800">{prog.minScoreBudget} баллов</span>
+                    <span className="text-lg font-black text-slate-800">
+                      {prog.minScoreBudget !== null ? `${prog.minScoreBudget} б.` : 'Не указан'}
+                    </span>
                   </div>
                 </div>
 

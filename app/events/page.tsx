@@ -173,7 +173,7 @@ export default function EventsCalendarPage() {
                 <button
                   onClick={() => {
                     setRegisteredEventId(event.id);
-                    showToast(`Вы успешно зарегистрированы на «${event.title}»!`, 'success');
+                    showToast(`Демо-регистрация на «${event.title}» сохранена локально. Официальная ссылка: ${event.registrationUrl}`, 'info');
                   }}
                   className="px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 active:scale-95 text-white text-xs font-bold transition-all shadow-md shadow-brand-500/20 inline-flex items-center gap-1.5"
                 >

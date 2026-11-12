@@ -2,12 +2,19 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { CITIES } from './data';
+import { WorkspaceV2, SavedEntityRef, SavedEntityType } from './types';
+import { 
+  loadWorkspaceFromStorage, 
+  saveWorkspaceToStorage, 
+  createDefaultWorkspace 
+} from './storage';
 
 export interface UserProfile {
   name: string;
   phone?: string;
   email?: string;
   isLoggedIn: boolean;
+  isGuest: boolean;
   avatar?: string;
 }
 
@@ -23,23 +30,52 @@ interface AppContextType {
   selectedCityName: string;
   isCityModalOpen: boolean;
   setIsCityModalOpen: (open: boolean) => void;
-  favorites: string[];
-  toggleFavorite: (id: string, name?: string) => void;
-  isFavorite: (id: string) => boolean;
-  compared: string[];
-  toggleCompare: (id: string, name?: string) => void;
-  isCompared: (id: string) => boolean;
+  
+  // Workspace & Persistence
+  workspace: WorkspaceV2;
+  storageRecoveryNotice: string | null;
+  dismissRecoveryNotice: () => void;
+  
+  // Typed Favorites & Backward-compatible helpers
+  favorites: string[]; // array of IDs for backward compatibility
+  savedFavorites: SavedEntityRef[]; // rich typed references
+  toggleFavorite: (
+    target: string | { type: SavedEntityType; id: string; title?: string; subtitle?: string }, 
+    name?: string
+  ) => void;
+  isFavorite: (id: string, type?: SavedEntityType) => boolean;
+  
+  // Typed Compare & Backward-compatible helpers
+  compared: string[]; // array of IDs for backward compatibility
+  savedCompared: SavedEntityRef[]; // rich typed references
+  toggleCompare: (
+    target: string | { type: SavedEntityType; id: string; title?: string; subtitle?: string }, 
+    name?: string
+  ) => void;
+  isCompared: (id: string, type?: SavedEntityType) => boolean;
   clearCompared: () => void;
+  
+  // Search
   searchQuery: string;
   setSearchQuery: (q: string) => void;
-  user: UserProfile | null;
+  
+  // User Profile (Explicit Local Guest Workspace)
+  user: UserProfile;
+  updateDisplayName: (name: string) => void;
   login: (userData: { name: string; phone?: string; email?: string }) => void;
   logout: () => void;
+  resetWorkspace: () => void;
   isAuthModalOpen: boolean;
   setIsAuthModalOpen: (open: boolean) => void;
-  userScores: Record<string, number>;
-  setUserScores: (scores: Record<string, number>) => void;
-  updateUserScore: (subject: string, score: number) => void;
+  
+  // Validated Student Scores (distinguishing null from 0)
+  userScores: Record<string, number | null>;
+  setUserScores: (scores: Record<string, number | null>) => void;
+  updateUserScore: (subject: string, score: number | null) => void;
+  achievementsScore: number | null;
+  setAchievementsScore: (score: number | null) => void;
+  
+  // Toast notifications
   toast: ToastItem | null;
   showToast: (message: string, type?: 'success' | 'info' | 'error') => void;
   hideToast: () => void;
@@ -50,18 +86,13 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [selectedCity, setSelectedCityState] = useState<string>('all');
   const [isCityModalOpen, setIsCityModalOpen] = useState<boolean>(false);
-  const [favorites, setFavorites] = useState<string[]>([]);
-  const [compared, setCompared] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [user, setUser] = useState<UserProfile | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
-  const [userScores, setUserScoresState] = useState<Record<string, number>>({
-    math: 78,
-    russian: 85,
-    informatics: 82,
-    social: 74,
-    physics: 70
-  });
+  const [toast, setToast] = useState<ToastItem | null>(null);
+
+  // Workspace V2 State
+  const [workspace, setWorkspace] = useState<WorkspaceV2>(createDefaultWorkspace());
+  const [storageRecoveryNotice, setStorageRecoveryNotice] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -70,23 +101,20 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       const savedCity = localStorage.getItem('ucheba_city');
       if (savedCity) setSelectedCityState(savedCity);
 
-      const savedFavs = localStorage.getItem('ucheba_favorites');
-      if (savedFavs) setFavorites(JSON.parse(savedFavs));
-
-      const savedComp = localStorage.getItem('ucheba_compare');
-      if (savedComp) setCompared(JSON.parse(savedComp));
-
-      const savedUser = localStorage.getItem('ucheba_user');
-      if (savedUser) setUser(JSON.parse(savedUser));
-
-      const savedScores = localStorage.getItem('ucheba_scores');
-      if (savedScores) setUserScoresState(JSON.parse(savedScores));
+      // Load or migrate workspace
+      const { workspace: loadedWs, recoveryNotice } = loadWorkspaceFromStorage();
+      setWorkspace(loadedWs);
+      if (recoveryNotice) {
+        setStorageRecoveryNotice(recoveryNotice);
+      }
     } catch {
-      // Ignore localStorage errors
+      // LocalStorage error resilience
     }
   }, []);
 
-  const [toast, setToast] = useState<ToastItem | null>(null);
+  const dismissRecoveryNotice = () => {
+    setStorageRecoveryNotice(null);
+  };
 
   const showToast = (message: string, type: 'success' | 'info' | 'error' = 'success') => {
     const newToast = { id: Date.now(), message, type };
@@ -100,44 +128,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setToast(null);
   };
 
-  const login = (userData: { name: string; phone?: string; email?: string }) => {
-    const profile: UserProfile = {
-      ...userData,
-      isLoggedIn: true,
-      avatar: userData.name.slice(0, 2).toUpperCase()
-    };
-    setUser(profile);
-    try {
-      localStorage.setItem('ucheba_user', JSON.stringify(profile));
-    } catch {}
-    showToast(`Добро пожаловать, ${userData.name}!`, 'success');
-  };
-
-  const logout = () => {
-    setUser(null);
-    try {
-      localStorage.removeItem('ucheba_user');
-    } catch {}
-    showToast('Вы вышли из личного кабинета', 'info');
-  };
-
-  const setUserScores = (scores: Record<string, number>) => {
-    setUserScoresState(scores);
-    try {
-      localStorage.setItem('ucheba_scores', JSON.stringify(scores));
-    } catch {}
-  };
-
-  const updateUserScore = (subject: string, score: number) => {
-    setUserScoresState(prev => {
-      const updated = { ...prev, [subject]: score };
-      try {
-        localStorage.setItem('ucheba_scores', JSON.stringify(updated));
-      } catch {}
-      return updated;
-    });
-  };
-
   const setSelectedCity = (cityId: string) => {
     setSelectedCityState(cityId);
     try {
@@ -147,64 +137,228 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     showToast(`Город изменён: ${cityObj ? cityObj.name : 'Вся Россия'}`, 'info');
   };
 
-  const toggleFavorite = (id: string, name?: string) => {
-    setFavorites(prev => {
-      const isAdding = !prev.includes(id);
-      const updated = isAdding ? [...prev, id] : prev.filter(item => item !== id);
-      try {
-        localStorage.setItem('ucheba_favorites', JSON.stringify(updated));
-      } catch {}
+  // User Profile
+  const user: UserProfile = {
+    name: workspace.userProfile.displayName,
+    isLoggedIn: true,
+    isGuest: true,
+    avatar: workspace.userProfile.avatar || workspace.userProfile.displayName.slice(0, 1).toUpperCase()
+  };
+
+  const updateDisplayName = (name: string) => {
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    setWorkspace(prev => {
+      const updated: WorkspaceV2 = {
+        ...prev,
+        userProfile: {
+          ...prev.userProfile,
+          displayName: trimmed,
+          avatar: trimmed.slice(0, 1).toUpperCase()
+        }
+      };
+      saveWorkspaceToStorage(updated);
+      return updated;
+    });
+    showToast(`Имя профиля обновлено: ${trimmed}`, 'success');
+  };
+
+  const login = (userData: { name: string; phone?: string; email?: string }) => {
+    if (userData.name) {
+      updateDisplayName(userData.name);
+    }
+  };
+
+  const logout = () => {
+    // Reset to clean guest workspace
+    const fresh = createDefaultWorkspace();
+    setWorkspace(fresh);
+    saveWorkspaceToStorage(fresh);
+    showToast('Гостевой профиль сброшен к начальному состоянию', 'info');
+  };
+
+  const resetWorkspace = () => {
+    logout();
+  };
+
+  // Validated Score Updates (Code-level validation 0-100 or null)
+  const updateUserScore = (subject: string, score: number | null) => {
+    let validScore: number | null = null;
+    if (score !== null && score !== undefined) {
+      const num = Number(score);
+      if (!isNaN(num)) {
+        validScore = Math.max(0, Math.min(100, Math.round(num)));
+      }
+    }
+
+    setWorkspace(prev => {
+      const updated: WorkspaceV2 = {
+        ...prev,
+        examScores: {
+          ...prev.examScores,
+          [subject]: validScore
+        }
+      };
+      saveWorkspaceToStorage(updated);
+      return updated;
+    });
+  };
+
+  const setUserScores = (scores: Record<string, number | null>) => {
+    const validatedScores: Record<string, number | null> = {};
+    for (const [subj, val] of Object.entries(scores)) {
+      if (val === null || val === undefined) {
+        validatedScores[subj] = null;
+      } else {
+        const num = Number(val);
+        validatedScores[subj] = isNaN(num) ? null : Math.max(0, Math.min(100, Math.round(num)));
+      }
+    }
+
+    setWorkspace(prev => {
+      const updated: WorkspaceV2 = {
+        ...prev,
+        examScores: {
+          ...prev.examScores,
+          ...validatedScores
+        }
+      };
+      saveWorkspaceToStorage(updated);
+      return updated;
+    });
+  };
+
+  const setAchievementsScore = (score: number | null) => {
+    const valid = score === null ? null : Math.max(0, Math.min(10, Math.round(Number(score) || 0)));
+    setWorkspace(prev => {
+      const updated: WorkspaceV2 = {
+        ...prev,
+        achievementsScore: valid
+      };
+      saveWorkspaceToStorage(updated);
+      return updated;
+    });
+  };
+
+  // Typed Favorites Management
+  const toggleFavorite = (
+    target: string | { type: SavedEntityType; id: string; title?: string; subtitle?: string },
+    name?: string
+  ) => {
+    const targetId = typeof target === 'string' ? target : target.id;
+    const targetType: SavedEntityType = typeof target === 'string' 
+      ? (target.startsWith('p') && !target.startsWith('prof') ? 'program' : 'institution')
+      : target.type;
+
+    setWorkspace(prev => {
+      const existsIndex = prev.favorites.findIndex(f => f.id === targetId);
+      let updatedFavs: SavedEntityRef[];
+      let isAdding: boolean;
+
+      if (existsIndex >= 0) {
+        updatedFavs = prev.favorites.filter((_, idx) => idx !== existsIndex);
+        isAdding = false;
+      } else {
+        const newRef: SavedEntityRef = {
+          type: targetType,
+          id: targetId,
+          savedAt: new Date().toISOString(),
+          title: typeof target === 'object' ? target.title : name,
+          subtitle: typeof target === 'object' ? target.subtitle : undefined
+        };
+        updatedFavs = [...prev.favorites, newRef];
+        isAdding = true;
+      }
+
+      const updatedWs: WorkspaceV2 = {
+        ...prev,
+        favorites: updatedFavs
+      };
+      saveWorkspaceToStorage(updatedWs);
+
+      const label = typeof target === 'object' ? target.title || name : name;
       showToast(
         isAdding 
-          ? (name ? `«${name}» добавлен в избранное` : 'Добавлено в избранное')
-          : (name ? `«${name}» удален из избранного` : 'Удалено из избранного'),
-        'success'
+          ? (label ? `«${label}» добавлен в избранное` : 'Добавлено в избранное')
+          : (label ? `«${label}» удален из избранного` : 'Удалено из избранного'),
+        isAdding ? 'success' : 'info'
       );
-      return updated;
+
+      return updatedWs;
     });
   };
 
-  const isFavorite = (id: string) => {
-    return favorites.includes(id);
+  const isFavorite = (id: string, type?: SavedEntityType): boolean => {
+    if (type) {
+      return workspace.favorites.some(f => f.id === id && f.type === type);
+    }
+    return workspace.favorites.some(f => f.id === id);
   };
 
-  const toggleCompare = (id: string, name?: string) => {
-    setCompared(prev => {
-      if (prev.includes(id)) {
-        const updated = prev.filter(item => item !== id);
-        try {
-          localStorage.setItem('ucheba_compare', JSON.stringify(updated));
-        } catch {}
+  // Typed Compare Management
+  const toggleCompare = (
+    target: string | { type: SavedEntityType; id: string; title?: string; subtitle?: string },
+    name?: string
+  ) => {
+    const targetId = typeof target === 'string' ? target : target.id;
+    const targetType: SavedEntityType = typeof target === 'string' 
+      ? (target.startsWith('p') && !target.startsWith('prof') ? 'program' : 'institution')
+      : target.type;
+
+    setWorkspace(prev => {
+      const existsIndex = prev.compared.findIndex(c => c.id === targetId);
+      let updatedComp: SavedEntityRef[];
+
+      if (existsIndex >= 0) {
+        updatedComp = prev.compared.filter((_, idx) => idx !== existsIndex);
+        const updatedWs: WorkspaceV2 = { ...prev, compared: updatedComp };
+        saveWorkspaceToStorage(updatedWs);
         showToast(name ? `«${name}» удален из сравнения` : 'Удалено из сравнения', 'info');
-        return updated;
+        return updatedWs;
       }
-      if (prev.length >= 4) {
-        showToast('Можно сравнить максимум 4 учебных заведения одновременно', 'error');
+
+      if (prev.compared.length >= 4) {
+        showToast('Можно сравнить максимум 4 объекта одновременно', 'error');
         return prev;
       }
-      const updated = [...prev, id];
-      try {
-        localStorage.setItem('ucheba_compare', JSON.stringify(updated));
-      } catch {}
+
+      const newRef: SavedEntityRef = {
+        type: targetType,
+        id: targetId,
+        savedAt: new Date().toISOString(),
+        title: typeof target === 'object' ? target.title : name,
+        subtitle: typeof target === 'object' ? target.subtitle : undefined
+      };
+      updatedComp = [...prev.compared, newRef];
+      const updatedWs: WorkspaceV2 = { ...prev, compared: updatedComp };
+      saveWorkspaceToStorage(updatedWs);
       showToast(name ? `«${name}» добавлен к сравнению` : 'Добавлено к сравнению', 'success');
-      return updated;
+      return updatedWs;
     });
   };
 
-  const isCompared = (id: string) => {
-    return compared.includes(id);
+  const isCompared = (id: string, type?: SavedEntityType): boolean => {
+    if (type) {
+      return workspace.compared.some(c => c.id === id && c.type === type);
+    }
+    return workspace.compared.some(c => c.id === id);
   };
 
   const clearCompared = () => {
-    setCompared([]);
-    try {
-      localStorage.removeItem('ucheba_compare');
-    } catch {}
+    setWorkspace(prev => {
+      const updatedWs: WorkspaceV2 = { ...prev, compared: [] };
+      saveWorkspaceToStorage(updatedWs);
+      return updatedWs;
+    });
     showToast('Список сравнения очищен', 'info');
   };
 
   const currentCityObj = CITIES.find(c => c.id === selectedCity);
   const selectedCityName = currentCityObj ? currentCityObj.name : 'Вся Россия';
+
+  // Backward compatible ID arrays
+  const favoriteIds = workspace.favorites.map(f => f.id);
+  const comparedIds = workspace.compared.map(c => c.id);
 
   return (
     <AppContext.Provider
@@ -214,23 +368,39 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         selectedCityName,
         isCityModalOpen,
         setIsCityModalOpen,
-        favorites,
+        
+        workspace,
+        storageRecoveryNotice,
+        dismissRecoveryNotice,
+        
+        favorites: favoriteIds,
+        savedFavorites: workspace.favorites,
         toggleFavorite,
         isFavorite,
-        compared,
+        
+        compared: comparedIds,
+        savedCompared: workspace.compared,
         toggleCompare,
         isCompared,
         clearCompared,
+        
         searchQuery,
         setSearchQuery,
+        
         user,
+        updateDisplayName,
         login,
         logout,
+        resetWorkspace,
         isAuthModalOpen,
         setIsAuthModalOpen,
-        userScores,
+        
+        userScores: workspace.examScores,
         setUserScores,
         updateUserScore,
+        achievementsScore: workspace.achievementsScore,
+        setAchievementsScore,
+        
         toast,
         showToast,
         hideToast,

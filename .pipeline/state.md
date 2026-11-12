@@ -77,3 +77,26 @@
 - [x] C7: Code review
 - [x] C8: Changelog & wrap up
 
+## Change 2026-11-11: Data Architecture, Honest Workspaces & Relational Foundation
+- **Size**: M
+- **Types**: feature, auth, content, flow-bug, bug
+- **Triage**:
+  1. Separate data modules (`reference`, `institutions`, `programs`, `careers`, `events`, `interestQuestions`) with clean re-exports and ID lookup utilities.
+  2. Establish stable explicit ID relationships (Program -> Institution, Program <-> Career) with 0 string-guessing.
+  3. Enrich Program information (entry rules, study mode/duration, curriculum with official vs illustrative flags, location, cost with period & currency, application destinations, evidence metadata).
+  4. Typed saved entities (`SavedEntityRef` distinguishing institutions vs programs) and versioned local persistence (`WorkspaceV2`) with safe migration, recovery backup, and graceful corruption fallback.
+  5. Replace fake SMS/password authentication with an explicit local guest workspace (`WorkspaceModal`).
+  6. Eliminate false admission guarantees and cutoff-only probability claims; replace with factual historical 2024 threshold comparisons, producing "not enough data" when scores are missing.
+  7. Shared validated student profile across `/profile`, `/admission-tracker`, and planning tools; distinguish unentered (null) from zero.
+  8. Remove universal computing curriculum from unrelated degree programs.
+  9. Honest form submission demo states with direct links to real institutional contacts.
+  10. Automated data integrity verification suite (duplicate IDs, broken references, date/cost period validation).
+- [x] C1: Context & safety verified
+- [x] C2: Baseline recorded
+- [x] C3: Implementation plan
+- [x] C4: Execute code upgrades
+- [x] C5: UI stress & mobile testing
+- [x] C6: Verification & regression checks (0 errors, 53 static routes compiled, curl 200 OK)
+- [x] C7: Code review & integrity audit (0 errors, 0 warnings across all entities)
+- [x] C8: Changelog & wrap up (README & CHANGELOG updated)
+

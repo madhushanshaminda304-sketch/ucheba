@@ -1,6 +1,36 @@
 export type DegreeLevel = 'bachelor' | 'specialist' | 'master' | 'college';
 export type StudyMode = 'full-time' | 'part-time' | 'remote';
 
+export interface EvidenceMetadata {
+  sourceUrl?: string | null;
+  academicYear?: string | null; // e.g. "2024/2025" or "2024"
+  lastCheckedDate?: string | null; // ISO YYYY-MM-DD
+  verificationStatus: 'verified' | 'unverified' | 'demo' | 'historical';
+  sourceName?: string | null;
+  notes?: string | null;
+}
+
+export interface CurriculumSemester {
+  number: number;
+  title: string;
+  subjects: string[];
+}
+
+export interface ProgramCost {
+  amount: number | null;
+  currency: 'RUB' | 'USD' | 'EUR';
+  period: 'year' | 'semester' | 'month' | 'full_course';
+  evidence?: EvidenceMetadata | null;
+}
+
+export interface ProgramScoreThreshold {
+  minScore: number | null; // null if unknown, NEVER 0 for unknown
+  year: number | null; // e.g. 2024
+  competitionType: 'budget' | 'paid' | 'targeted';
+  placesCount?: number | null;
+  evidence?: EvidenceMetadata | null;
+}
+
 export interface Institution {
   id: string;
   name: string;
@@ -23,12 +53,12 @@ export interface Institution {
   tags: string[];
   hasHostel: boolean;
   isMilitaryChair: boolean;
-  minBudgetScore: number;
-  minPaidScore: number;
-  budgetPlacesCount: number;
-  paidPlacesCount: number;
-  tuitionFeeFrom: number;
-  tuitionFeeTo: number;
+  minBudgetScore: number | null; // null if no budget or unknown
+  minPaidScore: number | null;
+  budgetPlacesCount: number | null;
+  paidPlacesCount: number | null;
+  tuitionFeeFrom: number | null;
+  tuitionFeeTo: number | null;
   website: string;
   phone: string;
   email: string;
@@ -38,6 +68,7 @@ export interface Institution {
   dormitoryInfo?: string;
   admissionRules?: string;
   dormitoryAddress?: string;
+  evidence?: EvidenceMetadata | null;
 }
 
 export interface Program {
@@ -46,6 +77,7 @@ export interface Program {
   institutionName: string;
   institutionAbbreviation: string;
   city: string;
+  campusAddress?: string | null;
   name: string;
   code: string;
   degreeLevel: DegreeLevel;
@@ -53,14 +85,76 @@ export interface Program {
   fieldName: string;
   studyMode: StudyMode;
   durationYears: number;
-  budgetPlaces: number;
-  paidPlaces: number;
-  minScoreBudget: number;
-  minScorePaid: number;
-  tuitionPerYear: number;
+  
+  // Intake & availability
+  intakeStatus?: 'open' | 'closed' | 'upcoming' | 'unknown' | null;
+  intakeYear?: number | null;
+  
+  // Historical thresholds with explicit evidence & year
+  budgetThreshold?: ProgramScoreThreshold | null;
+  paidThreshold?: ProgramScoreThreshold | null;
+  
+  // Cutoffs and capacities (nullable when unknown)
+  budgetPlaces: number | null;
+  paidPlaces: number | null;
+  minScoreBudget: number | null; // null if unknown, NOT 0
+  minScorePaid: number | null;
+  
+  // Cost details
+  cost?: ProgramCost | null;
+  tuitionPerYear: number | null;
+  
   subjectsRequired: string[];
   description: string;
-  careers: string[];
+  careers: string[]; // Explicit profession IDs (e.g. ['software-engineer', 'data-scientist'])
+  
+  // Specific curriculum: null if unavailable or unverified
+  curriculum?: CurriculumSemester[] | null;
+  curriculumStatus?: 'official' | 'illustrative' | 'unavailable';
+  
+  // Official application & admission references
+  applicationUrl?: string | null;
+  admissionRulesUrl?: string | null;
+  
+  evidence?: EvidenceMetadata | null;
+}
+
+export type SavedEntityType = 'institution' | 'program' | 'college' | 'profession';
+
+export interface SavedEntityRef {
+  type: SavedEntityType;
+  id: string;
+  savedAt: string; // ISO timestamp
+  title?: string;
+  subtitle?: string;
+  metadata?: Record<string, any>;
+}
+
+export interface WorkspaceUserProfile {
+  displayName: string;
+  isGuest: true;
+  avatar?: string;
+  createdAt: string;
+  notes?: string;
+}
+
+export interface WorkspaceV2 {
+  schemaVersion: 2;
+  workspaceMode: 'guest';
+  guestId: string;
+  createdAt: string;
+  updatedAt: string;
+  userProfile: WorkspaceUserProfile;
+  examScores: Record<string, number | null>; // null if unentered, 0-100 if entered
+  achievementsScore: number | null;
+  favorites: SavedEntityRef[];
+  compared: SavedEntityRef[];
+  targetInstitutions: {
+    institutionId: string;
+    programId?: string | null;
+    priority: number;
+    addedAt: string;
+  }[];
 }
 
 export interface College {

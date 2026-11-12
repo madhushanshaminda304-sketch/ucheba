@@ -570,11 +570,15 @@ export default function HomePage() {
                   <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 text-xs">
                     <div className="bg-slate-50 p-2.5 rounded-xl">
                       <span className="text-slate-400 block text-[11px]">Балл на бюджет</span>
-                      <span className="font-black text-slate-800 text-sm">от {inst.minBudgetScore}</span>
+                      <span className="font-black text-slate-800 text-sm">
+                        {inst.minBudgetScore !== null ? `от ${inst.minBudgetScore}` : 'Уточняется'}
+                      </span>
                     </div>
                     <div className="bg-slate-50 p-2.5 rounded-xl">
                       <span className="text-slate-400 block text-[11px]">Обучение в год</span>
-                      <span className="font-black text-slate-800 text-sm">от {(inst.tuitionFeeFrom / 1000).toFixed(0)} тыс. ₽</span>
+                      <span className="font-black text-slate-800 text-sm">
+                        {inst.tuitionFeeFrom !== null ? `от ${(inst.tuitionFeeFrom / 1000).toFixed(0)} тыс. ₽` : 'Уточняется'}
+                      </span>
                     </div>
                   </div>
 
@@ -591,7 +595,7 @@ export default function HomePage() {
                       </span>
                     )}
                     <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-medium">
-                      {inst.budgetPlacesCount} мест
+                      {inst.budgetPlacesCount !== null ? `${inst.budgetPlacesCount} мест` : 'По запросу'}
                     </span>
                   </div>
                 </div>
