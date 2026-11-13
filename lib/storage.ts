@@ -222,9 +222,25 @@ export function loadWorkspaceFromStorage(): StorageLoadResult {
     if (rawV2) {
       try {
         const parsed = JSON.parse(rawV2);
-        const { workspace, fixedIssues } = validateWorkspace(parsed);
-        const notice = fixedIssues.length > 0 
-          ? `Локальное хранилище синхронизировано (${fixedIssues.length} записей скорректировано).` 
+        const { valid, workspace, fixedIssues } = validateWorkspace(parsed);
+        const isObsoleteSchema = !parsed || typeof parsed !== 'object' || parsed.schemaVersion !== 2;
+
+        if (!valid || isObsoleteSchema) {
+          localStorage.setItem(`${BACKUP_KEY_PREFIX}obsolete_${Date.now()}`, rawV2);
+          saveWorkspaceToStorage(workspace);
+          return {
+            workspace,
+            recoveryNotice: 'Обнаружена устаревшая или некорректная структура профиля. Создана резервная копия и выполнено восстановление.'
+          };
+        }
+
+        if (fixedIssues.length > 0) {
+          localStorage.setItem(`${BACKUP_KEY_PREFIX}migrated_${Date.now()}`, rawV2);
+          saveWorkspaceToStorage(workspace);
+        }
+
+        const notice = fixedIssues.length > 0
+          ? `Локальное хранилище синхронизировано (${fixedIssues.length} записей скорректировано, создана резервная копия).`
           : null;
         return { workspace, recoveryNotice: notice };
       } catch (parseError) {
@@ -247,28 +263,52 @@ export function loadWorkspaceFromStorage(): StorageLoadResult {
     const legacyScores = localStorage.getItem('ucheba_scores');
 
     if (legacyFavs || legacyComp || legacyUser || legacyScores) {
-      // Create backup of legacy data before migration
+      const safeParse = (raw: string | null) => {
+        if (!raw) return { ok: true, value: null };
+        try {
+          return { ok: true, value: JSON.parse(raw) };
+        } catch {
+          return { ok: false, value: raw };
+        }
+      };
+
+      const parsedFavs = safeParse(legacyFavs);
+      const parsedComp = safeParse(legacyComp);
+      const parsedUser = safeParse(legacyUser);
+      const parsedScores = safeParse(legacyScores);
+      const hadCorruptLegacy = !parsedFavs.ok || !parsedComp.ok || !parsedUser.ok || !parsedScores.ok;
+
+      // Create backup of legacy data before migration (including raw corrupt strings if any)
       const backupData = {
-        favorites: legacyFavs ? JSON.parse(legacyFavs) : null,
-        compare: legacyComp ? JSON.parse(legacyComp) : null,
-        user: legacyUser ? JSON.parse(legacyUser) : null,
-        scores: legacyScores ? JSON.parse(legacyScores) : null,
+        favorites: parsedFavs.value,
+        compare: parsedComp.value,
+        user: parsedUser.value,
+        scores: parsedScores.value,
         backedUpAt: new Date().toISOString()
       };
       localStorage.setItem(`${BACKUP_KEY_PREFIX}v1_${Date.now()}`, JSON.stringify(backupData));
 
       const fresh = createDefaultWorkspace();
-      
+
       // Migrate user name if exists
-      if (backupData.user && typeof backupData.user.name === 'string' && backupData.user.name.trim()) {
-        fresh.userProfile.displayName = backupData.user.name.trim();
-        fresh.userProfile.avatar = backupData.user.name.trim().slice(0, 1).toUpperCase();
+      if (parsedUser.ok && parsedUser.value && typeof parsedUser.value.name === 'string' && parsedUser.value.name.trim()) {
+        fresh.userProfile.displayName = parsedUser.value.name.trim();
+        fresh.userProfile.avatar = parsedUser.value.name.trim().slice(0, 1).toUpperCase();
+      }
+
+      // Migrate scores if valid
+      if (parsedScores.ok && parsedScores.value && typeof parsedScores.value === 'object') {
+        for (const [subj, val] of Object.entries(parsedScores.value)) {
+          if (typeof val === 'number' && !isNaN(val)) {
+            fresh.examScores[subj] = Math.max(0, Math.min(100, Math.round(val)));
+          }
+        }
       }
 
       // Migrate favorites
-      if (Array.isArray(backupData.favorites)) {
-        for (const id of backupData.favorites) {
-          if (typeof id === 'string') {
+      if (parsedFavs.ok && Array.isArray(parsedFavs.value)) {
+        for (const id of parsedFavs.value) {
+          if (typeof id === 'string' && id) {
             const type = inferLegacyEntityType(id);
             const { title, subtitle } = getEntityTitle(type, id);
             fresh.favorites.push({
@@ -283,9 +323,9 @@ export function loadWorkspaceFromStorage(): StorageLoadResult {
       }
 
       // Migrate compared
-      if (Array.isArray(backupData.compare)) {
-        for (const id of backupData.compare) {
-          if (typeof id === 'string') {
+      if (parsedComp.ok && Array.isArray(parsedComp.value)) {
+        for (const id of parsedComp.value) {
+          if (typeof id === 'string' && id) {
             const type = inferLegacyEntityType(id);
             const { title, subtitle } = getEntityTitle(type, id);
             fresh.compared.push({
@@ -303,7 +343,9 @@ export function loadWorkspaceFromStorage(): StorageLoadResult {
       saveWorkspaceToStorage(fresh);
       return {
         workspace: fresh,
-        recoveryNotice: 'Данные профиля успешно перенесены в новый формат workspace v2. Создана резервная копия.'
+        recoveryNotice: hadCorruptLegacy
+          ? 'Часть устаревших локальных данных была повреждена. Создана резервная копия и перенесены корректные записи.'
+          : 'Данные профиля перенесены в новый формат workspace v2. Создана резервная копия.'
       };
     }
 

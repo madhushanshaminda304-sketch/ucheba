@@ -73,7 +73,7 @@ export const PROFESSIONS: Profession[] = [
     salarySenior: 320000,
     demandLevel: 'Стабильная',
     keySkills: ['Figma / Design Tokens', 'Прототипирование и тестирование гипотез', 'User Research & Анализ метрик', 'Типографика и композиция'],
-    relatedPrograms: ['54.03.01 Дизайн', '09.03.03 Прикладная информатика в дизайне'],
+    relatedPrograms: [],
     educationLevels: ['Бакалавриат', 'Колледж']
   }
 ];

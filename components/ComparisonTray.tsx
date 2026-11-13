@@ -24,12 +24,12 @@ export default function ComparisonTray() {
         <div className="flex items-center gap-2">
           {savedCompared.map(item => (
             <div
-              key={item.id}
+              key={`${item.type}:${item.id}`}
               className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-800 rounded-lg border border-slate-700 text-xs shrink-0"
             >
               <span className="font-medium truncate max-w-[120px]">{item.title || item.id}</span>
               <button
-                onClick={() => toggleCompare(item.id)}
+                onClick={() => toggleCompare({ type: item.type, id: item.id, title: item.title, subtitle: item.subtitle })}
                 className="text-slate-400 hover:text-white p-0.5"
                 title="Удалить из сравнения"
               >

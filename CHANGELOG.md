@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.1] - 2026-11-13 — Relational IDs, Evidence Completeness & Integrity Test Suite
+### Added
+- **Automated Integrity & Persistence Test Suite (`scripts/test_integrity_and_storage.ts`)**: 11 assertion-based test suites covering live data audit, synthetic negative cases (duplicate IDs, broken references, invalid dates, inconsistent cost periods, zero-for-unknown, unbacked verified status), legacy `v1` migration with pre-migration backups, and corrupt storage recovery.
+- **Program Comparison Support (`app/compare/page.tsx`)**: Added side-by-side comparison table for saved `program` entities alongside institutions.
+- **Global Recovery Banner (`components/Header.tsx`)**: Surfaced `storageRecoveryNotice` across all routes whenever local storage migration or corruption recovery occurs.
+
+### Changed
+- **Explicit Career & Program IDs**: Replaced remaining freeform career/program strings in `lib/data/programs.ts` and `lib/data/careers.ts` with explicit `prof*` and `p*` IDs; updated `app/prof/[slug]/page.tsx` to use `getProgramsByCareerId()` and `app/vuz/[id]/page.tsx` to resolve career titles by ID.
+- **Complete Programme Evidence & Costs**: Added `campusAddress`, `cost` (with currency and billing period), `budgetThreshold`, `paidThreshold`, and `evidence` (`sourceUrl`, `academicYear`, `lastCheckedDate`, `verificationStatus: 'demo'`) across all programmes `p1`–`p10` and rendered them on `/program/[id]`.
+- **Typed Favorite Lookups & Legacy Corruption Recovery**: Switched `app/profile/page.tsx` from untyped `favorites.includes(id)` to `isFavorite(id, type)` and hardened `lib/storage.ts` to preserve raw backups even when legacy keys contain corrupt JSON.
+
+---
+
 ## [2.2.0] - 2026-11-12 — Honest Guest Workspace, Relational Data Foundation & Integrity Verification
 ### Added
 - **Modular Data Architecture (`lib/data/`)**: Decomposed monolithic data into 8 domain-specific modules (`reference.ts`, `institutions.ts`, `programs.ts`, `careers.ts`, `events.ts`, `interestQuestions.ts`, `lookup.ts`, `integrity.ts`) with backward-compatible re-exports.

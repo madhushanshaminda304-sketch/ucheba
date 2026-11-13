@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "check:integrity": "npx -y tsx -e \"import { runDataIntegrityAudit } from './lib/data/integrity'; const r = runDataIntegrityAudit(); if (!r.valid) { console.error(r.errors); process.exit(1); } console.log('Data valid:', r.counts);\""
+    "check:integrity": "npx -y tsx -e \"import { runDataIntegrityAudit } from './lib/data/integrity'; const r = runDataIntegrityAudit(); if (!r.valid) { console.error(r.errors); process.exit(1); } console.log('Data valid:', r.counts);\"",
+    "test:integrity": "npx -y tsx scripts/test_integrity_and_storage.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

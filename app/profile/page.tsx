@@ -33,6 +33,7 @@ export default function ProfilePage() {
     favorites, 
     savedFavorites, 
     toggleFavorite, 
+    isFavorite,
     userScores, 
     updateUserScore,
     storageRecoveryNotice,
@@ -60,9 +61,9 @@ export default function ProfilePage() {
 
   const enteredScoresCount = Object.values(userScores).filter(v => v !== null && v !== undefined).length;
 
-  // Filter favorite institutions and programs
-  const favoriteInstitutions = INSTITUTIONS.filter(inst => favorites.includes(inst.id));
-  const favoritePrograms = PROGRAMS.filter(prog => favorites.includes(prog.id));
+  // Filter favorite institutions and programs using typed entity checks
+  const favoriteInstitutions = INSTITUTIONS.filter(inst => isFavorite(inst.id, 'institution'));
+  const favoritePrograms = PROGRAMS.filter(prog => isFavorite(prog.id, 'program'));
 
   const handleScoreChange = (subject: string, rawVal: string) => {
     if (rawVal.trim() === '') {
@@ -444,7 +445,7 @@ export default function ProfilePage() {
                           <ExternalLink className="w-4 h-4" />
                         </Link>
                         <button
-                          onClick={() => toggleFavorite(fav.id, fav.title)}
+                          onClick={() => toggleFavorite({ type: fav.type, id: fav.id, title: fav.title, subtitle: fav.subtitle }, fav.title)}
                           className="p-2 rounded-xl text-rose-500 hover:bg-rose-50 transition-colors"
                           title="Удалить"
                         >

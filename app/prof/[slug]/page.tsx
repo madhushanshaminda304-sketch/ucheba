@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useParams, notFound } from 'next/navigation';
-import { PROFESSIONS, PROGRAMS, INSTITUTIONS } from '@/lib/data';
+import { PROFESSIONS, getProgramsByCareerId } from '@/lib/data';
 import { 
   Briefcase, 
   TrendingUp, 
@@ -25,13 +25,8 @@ export default function ProfessionDetailPage() {
     notFound();
   }
 
-  // Find educational programs matching this profession
-  const relatedPrograms = PROGRAMS.filter(p => {
-    return prof.relatedPrograms.some(rp => {
-      const code = rp.split(' ')[0];
-      return p.code.startsWith(code) || prof.relatedPrograms.some(r => p.name.toLowerCase().includes(r.toLowerCase()));
-    });
-  });
+  // Find educational programs matching this profession via explicit ID relationships
+  const relatedPrograms = getProgramsByCareerId(prof.id);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 pb-20">

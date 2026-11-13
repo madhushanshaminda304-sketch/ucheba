@@ -157,9 +157,15 @@ export default function ProgramDetailPage() {
           <div>
             <span className="text-xs text-slate-400 block font-medium">Стоимость обучения</span>
             <span className="text-xl font-black text-slate-900">
-              {program.tuitionPerYear !== null ? `${(program.tuitionPerYear / 1000).toFixed(0)} тыс. ₽/год` : 'Уточняется'}
+              {program.cost?.amount !== null && program.cost?.amount !== undefined
+                ? `${(program.cost.amount / 1000).toFixed(0)} тыс. ${program.cost.currency === 'RUB' ? '₽' : program.cost.currency}/${program.cost.period === 'year' ? 'год' : program.cost.period === 'semester' ? 'сем.' : program.cost.period === 'month' ? 'мес.' : 'курс'}`
+                : program.tuitionPerYear !== null
+                  ? `${(program.tuitionPerYear / 1000).toFixed(0)} тыс. ₽/год`
+                  : 'Уточняется'}
             </span>
-            <span className="text-[10px] text-slate-400 block mt-0.5">Очная форма</span>
+            <span className="text-[10px] text-slate-400 block mt-0.5">
+              {program.studyMode === 'full-time' ? 'Очная форма' : program.studyMode === 'part-time' ? 'Очно-заочная' : 'Заочная'}
+            </span>
           </div>
           <div>
             <span className="text-xs text-slate-400 block font-medium">Бюджетных мест</span>
@@ -191,23 +197,44 @@ export default function ProgramDetailPage() {
           </div>
         </div>
 
-        {/* Application Link */}
-        {program.applicationUrl && (
-          <div className="pt-2 flex items-center justify-between">
-            <span className="text-xs text-slate-500">
-              Официальная подача документов и правила приёма:
+        {/* Application Link & Evidence Metadata */}
+        <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className={`px-2 py-0.5 rounded font-bold text-[11px] ${
+              program.evidence?.verificationStatus === 'verified'
+                ? 'bg-emerald-50 text-emerald-700'
+                : 'bg-amber-50 text-amber-800'
+            }`}>
+              {program.evidence?.verificationStatus === 'verified'
+                ? 'Проверено'
+                : program.evidence?.verificationStatus === 'historical'
+                  ? 'Исторические данные'
+                  : program.evidence?.verificationStatus === 'demo'
+                    ? 'Демо-данные'
+                    : 'Не проверено'}
             </span>
+            {program.evidence?.academicYear && (
+              <span>Учебный год: {program.evidence.academicYear}</span>
+            )}
+            {program.evidence?.lastCheckedDate && (
+              <span>• Проверено: {program.evidence.lastCheckedDate}</span>
+            )}
+            {program.evidence?.sourceName && (
+              <span>• Источник: {program.evidence.sourceName}</span>
+            )}
+          </div>
+          {program.applicationUrl && (
             <a
               href={program.applicationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-700 transition-colors"
+              className="inline-flex items-center gap-1.5 font-bold text-brand-600 hover:text-brand-700 transition-colors"
             >
               <span>Сайт приёмной комиссии</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Curriculum Breakdown - Displayed ONLY when program-specific curriculum exists */}

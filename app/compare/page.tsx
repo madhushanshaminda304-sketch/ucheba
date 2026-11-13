@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useApp } from '@/lib/AppContext';
-import { INSTITUTIONS } from '@/lib/data';
+import { INSTITUTIONS, PROGRAMS } from '@/lib/data';
 import { 
   Scale, 
   X, 
@@ -17,14 +17,20 @@ import {
 } from 'lucide-react';
 
 export default function ComparePage() {
-  const { compared, toggleCompare, clearCompared } = useApp();
+  const { savedCompared, toggleCompare, clearCompared } = useApp();
   const [highlightDifferences, setHighlightDifferences] = useState(false);
 
-  const selectedInstitutions = compared
-    .map(id => INSTITUTIONS.find(i => i.id === id))
+  const selectedInstitutions = savedCompared
+    .filter(item => item.type === 'institution')
+    .map(item => INSTITUTIONS.find(i => i.id === item.id))
     .filter(Boolean);
 
-  if (selectedInstitutions.length === 0) {
+  const selectedPrograms = savedCompared
+    .filter(item => item.type === 'program')
+    .map(item => PROGRAMS.find(p => p.id === item.id))
+    .filter(Boolean);
+
+  if (selectedInstitutions.length === 0 && selectedPrograms.length === 0) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center space-y-6">
         <div className="w-20 h-20 bg-brand-50 text-brand-600 rounded-3xl mx-auto flex items-center justify-center shadow-inner">
@@ -174,8 +180,9 @@ export default function ComparePage() {
         </div>
       </div>
 
-      {/* Matrix Table */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-x-auto">
+      {/* Institutions Matrix Table */}
+      {selectedInstitutions.length > 0 && (
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[700px]">
           <thead>
             <tr className="border-b border-slate-100">
@@ -189,7 +196,7 @@ export default function ComparePage() {
                       {inst!.logoLetter}
                     </div>
                     <button
-                      onClick={() => toggleCompare(inst!.id)}
+                      onClick={() => toggleCompare({ type: 'institution', id: inst!.id, title: inst!.name })}
                       className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors"
                       title="Удалить из сравнения"
                     >
@@ -251,6 +258,83 @@ export default function ComparePage() {
           </tbody>
         </table>
       </div>
+      )}
+
+      {/* Programs Matrix Table */}
+      {selectedPrograms.length > 0 && (
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-x-auto">
+          <table className="w-full text-left border-collapse min-w-[700px]">
+            <thead>
+              <tr className="border-b border-slate-100">
+                <th className="p-4 sm:p-6 w-1/4 bg-slate-50/70 text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Программы обучения
+                </th>
+                {selectedPrograms.map(prog => (
+                  <th key={prog!.id} className="p-4 sm:p-6 w-1/4 align-top border-l border-slate-100">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <span className="px-2 py-0.5 rounded bg-brand-50 text-brand-700 font-bold text-[11px]">
+                        {prog!.code}
+                      </span>
+                      <button
+                        onClick={() => toggleCompare({ type: 'program', id: prog!.id, title: prog!.name })}
+                        className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors"
+                        title="Удалить из сравнения"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <h3 className="font-bold text-slate-900 text-sm leading-snug line-clamp-2">
+                      {prog!.name}
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-1">{prog!.institutionAbbreviation}</p>
+                    <Link
+                      href={`/program/${prog!.id}`}
+                      className="text-xs font-bold text-brand-600 hover:text-brand-800 inline-flex items-center gap-1 mt-2"
+                    >
+                      <span>Страница программы</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-slate-100 bg-white">
+                <td className="p-4 sm:p-5 text-xs font-bold text-slate-600 bg-slate-50/60">Порог 2024 (бюджет)</td>
+                {selectedPrograms.map(prog => (
+                  <td key={prog!.id} className="p-4 sm:p-5 text-xs font-bold text-slate-800 border-l border-slate-100">
+                    {prog!.minScoreBudget !== null ? `от ${prog!.minScoreBudget} б.` : 'Не указан'}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b border-slate-100 bg-slate-50/30">
+                <td className="p-4 sm:p-5 text-xs font-bold text-slate-600 bg-slate-50/60">Стоимость (в год)</td>
+                {selectedPrograms.map(prog => (
+                  <td key={prog!.id} className="p-4 sm:p-5 text-xs font-bold text-slate-800 border-l border-slate-100">
+                    {prog!.tuitionPerYear !== null ? `${(prog!.tuitionPerYear / 1000).toFixed(0)} 000 ₽` : 'Уточняется'}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b border-slate-100 bg-white">
+                <td className="p-4 sm:p-5 text-xs font-bold text-slate-600 bg-slate-50/60">Бюджетных мест</td>
+                {selectedPrograms.map(prog => (
+                  <td key={prog!.id} className="p-4 sm:p-5 text-xs font-bold text-slate-800 border-l border-slate-100">
+                    {prog!.budgetPlaces !== null ? `${prog!.budgetPlaces} мест` : 'По запросу'}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b border-slate-100 bg-slate-50/30">
+                <td className="p-4 sm:p-5 text-xs font-bold text-slate-600 bg-slate-50/60">Срок и форма</td>
+                {selectedPrograms.map(prog => (
+                  <td key={prog!.id} className="p-4 sm:p-5 text-xs text-slate-700 border-l border-slate-100">
+                    {prog!.durationYears} г. • {prog!.studyMode === 'full-time' ? 'Очная' : prog!.studyMode === 'part-time' ? 'Очно-заочная' : 'Заочная'}
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
 
     </div>
   );

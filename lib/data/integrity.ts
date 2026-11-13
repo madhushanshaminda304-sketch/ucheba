@@ -1,8 +1,9 @@
-import { CITIES } from './reference';
+import { ARTICLES, EDUCATIONAL_DOMAINS } from './reference';
 import { INSTITUTIONS, COLLEGES, SCHOOLS } from './institutions';
 import { PROGRAMS, MASTER_PROGRAMS, MBA_PROGRAMS, ABROAD_PROGRAMS, COURSES } from './programs';
 import { PROFESSIONS, SPECIALITIES } from './careers';
 import { OPEN_DAY_EVENTS, OLYMPIADS, RANKINGS } from './events';
+import type { EvidenceMetadata } from '../types';
 
 export interface IntegrityReport {
   valid: boolean;
@@ -26,25 +27,79 @@ export interface IntegrityReport {
   warnings: string[];
 }
 
-export function runDataIntegrityAudit(): IntegrityReport {
+export interface IntegrityDataset {
+  institutions?: typeof INSTITUTIONS;
+  programs?: typeof PROGRAMS;
+  colleges?: typeof COLLEGES;
+  schools?: typeof SCHOOLS;
+  professions?: typeof PROFESSIONS;
+  specialities?: typeof SPECIALITIES;
+  events?: typeof OPEN_DAY_EVENTS;
+  olympiads?: typeof OLYMPIADS;
+  rankings?: typeof RANKINGS;
+  courses?: typeof COURSES;
+  masterPrograms?: typeof MASTER_PROGRAMS;
+  mbaPrograms?: typeof MBA_PROGRAMS;
+  abroadPrograms?: typeof ABROAD_PROGRAMS;
+  articles?: typeof ARTICLES;
+  domains?: typeof EDUCATIONAL_DOMAINS;
+}
+
+const VALID_COST_PERIODS = ['year', 'semester', 'month', 'full_course'] as const;
+const VALID_CURRENCIES = ['RUB', 'USD', 'EUR'] as const;
+
+export function isValidIsoDate(value: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const [y, m, d] = value.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  return dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d;
+}
+
+export function runDataIntegrityAudit(dataset: IntegrityDataset = {}): IntegrityReport {
+  const institutions = dataset.institutions ?? INSTITUTIONS;
+  const programs = dataset.programs ?? PROGRAMS;
+  const colleges = dataset.colleges ?? COLLEGES;
+  const schools = dataset.schools ?? SCHOOLS;
+  const professions = dataset.professions ?? PROFESSIONS;
+  const specialities = dataset.specialities ?? SPECIALITIES;
+  const events = dataset.events ?? OPEN_DAY_EVENTS;
+  const olympiads = dataset.olympiads ?? OLYMPIADS;
+  const rankings = dataset.rankings ?? RANKINGS;
+  const courses = dataset.courses ?? COURSES;
+  const masterPrograms = dataset.masterPrograms ?? MASTER_PROGRAMS;
+  const mbaPrograms = dataset.mbaPrograms ?? MBA_PROGRAMS;
+  const abroadPrograms = dataset.abroadPrograms ?? ABROAD_PROGRAMS;
+  const articles = dataset.articles ?? ARTICLES;
+  const domains = dataset.domains ?? EDUCATIONAL_DOMAINS;
+
   const errors: string[] = [];
   const warnings: string[] = [];
 
   const counts = {
-    institutions: INSTITUTIONS.length,
-    programs: PROGRAMS.length,
-    colleges: COLLEGES.length,
-    schools: SCHOOLS.length,
-    professions: PROFESSIONS.length,
-    specialities: SPECIALITIES.length,
-    events: OPEN_DAY_EVENTS.length,
-    olympiads: OLYMPIADS.length,
-    rankings: RANKINGS.length,
-    courses: COURSES.length,
-    masterPrograms: MASTER_PROGRAMS.length,
-    mbaPrograms: MBA_PROGRAMS.length,
-    abroadPrograms: ABROAD_PROGRAMS.length,
+    institutions: institutions.length,
+    programs: programs.length,
+    colleges: colleges.length,
+    schools: schools.length,
+    professions: professions.length,
+    specialities: specialities.length,
+    events: events.length,
+    olympiads: olympiads.length,
+    rankings: rankings.length,
+    courses: courses.length,
+    masterPrograms: masterPrograms.length,
+    mbaPrograms: mbaPrograms.length,
+    abroadPrograms: abroadPrograms.length,
   };
+
+  function validateEvidence(ev: EvidenceMetadata | null | undefined, context: string) {
+    if (!ev) return;
+    if (ev.lastCheckedDate && !isValidIsoDate(ev.lastCheckedDate)) {
+      errors.push(`Invalid date: ${context} has invalid lastCheckedDate "${ev.lastCheckedDate}"`);
+    }
+    if (ev.verificationStatus === 'verified' && (!ev.sourceUrl || !ev.lastCheckedDate)) {
+      errors.push(`Unbacked verified status: ${context} is marked "verified" without sourceUrl and lastCheckedDate`);
+    }
+  }
 
   // 1. Check duplicate IDs within each collection
   function checkDuplicateIds(items: { id: string | number }[], collectionName: string) {
@@ -58,26 +113,47 @@ export function runDataIntegrityAudit(): IntegrityReport {
     }
   }
 
-  checkDuplicateIds(INSTITUTIONS, 'INSTITUTIONS');
-  checkDuplicateIds(PROGRAMS, 'PROGRAMS');
-  checkDuplicateIds(COLLEGES, 'COLLEGES');
-  checkDuplicateIds(SCHOOLS, 'SCHOOLS');
-  checkDuplicateIds(PROFESSIONS, 'PROFESSIONS');
-  checkDuplicateIds(SPECIALITIES, 'SPECIALITIES');
-  checkDuplicateIds(OPEN_DAY_EVENTS, 'OPEN_DAY_EVENTS');
-  checkDuplicateIds(OLYMPIADS, 'OLYMPIADS');
-  checkDuplicateIds(COURSES, 'COURSES');
-  checkDuplicateIds(MASTER_PROGRAMS, 'MASTER_PROGRAMS');
-  checkDuplicateIds(MBA_PROGRAMS, 'MBA_PROGRAMS');
-  checkDuplicateIds(ABROAD_PROGRAMS, 'ABROAD_PROGRAMS');
+  checkDuplicateIds(institutions, 'INSTITUTIONS');
+  checkDuplicateIds(programs, 'PROGRAMS');
+  checkDuplicateIds(colleges, 'COLLEGES');
+  checkDuplicateIds(schools, 'SCHOOLS');
+  checkDuplicateIds(professions, 'PROFESSIONS');
+  checkDuplicateIds(specialities, 'SPECIALITIES');
+  checkDuplicateIds(events, 'OPEN_DAY_EVENTS');
+  checkDuplicateIds(olympiads, 'OLYMPIADS');
+  checkDuplicateIds(courses, 'COURSES');
+  checkDuplicateIds(masterPrograms, 'MASTER_PROGRAMS');
+  checkDuplicateIds(mbaPrograms, 'MBA_PROGRAMS');
+  checkDuplicateIds(abroadPrograms, 'ABROAD_PROGRAMS');
+  checkDuplicateIds(articles, 'ARTICLES');
 
-  // 2. Check broken references: Program -> Institution
-  const instIdSet = new Set(INSTITUTIONS.map(i => i.id));
-  for (const prog of PROGRAMS) {
+  const instIdSet = new Set(institutions.map(i => i.id));
+  const profIdSet = new Set(professions.map(p => p.id));
+  const domainIdSet = new Set(domains.map(d => d.id));
+  const progIdSet = new Set(programs.map(p => p.id));
+
+  // Validate institutions evidence
+  for (const inst of institutions) {
+    validateEvidence(inst.evidence, `Institution "${inst.id}"`);
+  }
+
+  // 2. Check Programs: references, costs, thresholds, zero-for-unknown, evidence
+  for (const prog of programs) {
     if (!instIdSet.has(prog.institutionId)) {
       errors.push(`Broken reference: Program "${prog.id}" references non-existent institutionId "${prog.institutionId}"`);
     }
-    // Check cost period and negative amounts
+    if (!domainIdSet.has(prog.fieldId)) {
+      errors.push(`Broken reference: Program "${prog.id}" references non-existent fieldId "${prog.fieldId}"`);
+    }
+    for (const careerId of prog.careers) {
+      if (!profIdSet.has(careerId)) {
+        errors.push(`Broken reference: Program "${prog.id}" references non-existent career ID "${careerId}"`);
+      }
+    }
+
+    if (prog.minScoreBudget === 0 || prog.minScorePaid === 0) {
+      errors.push(`Zero used for unknown: Program "${prog.id}" uses 0 for score threshold instead of null`);
+    }
     if (prog.tuitionPerYear !== null && prog.tuitionPerYear !== undefined && prog.tuitionPerYear < 0) {
       errors.push(`Invalid cost: Program "${prog.id}" has negative tuitionPerYear "${prog.tuitionPerYear}"`);
     }
@@ -85,40 +161,82 @@ export function runDataIntegrityAudit(): IntegrityReport {
       if (prog.cost.amount !== null && prog.cost.amount !== undefined && prog.cost.amount < 0) {
         errors.push(`Invalid cost: Program "${prog.id}" cost amount is negative "${prog.cost.amount}"`);
       }
-      const validPeriods = ['year', 'semester', 'month', 'full_course'];
-      if (!validPeriods.includes(prog.cost.period)) {
+      if (!VALID_COST_PERIODS.includes(prog.cost.period)) {
         errors.push(`Invalid cost period: Program "${prog.id}" has unknown period "${prog.cost.period}"`);
       }
+      if (!VALID_CURRENCIES.includes(prog.cost.currency)) {
+        errors.push(`Invalid currency: Program "${prog.id}" has unknown currency "${prog.cost.currency}"`);
+      }
+      if (
+        prog.cost.period === 'year' &&
+        prog.cost.amount !== null &&
+        prog.tuitionPerYear !== null &&
+        prog.cost.amount !== prog.tuitionPerYear
+      ) {
+        errors.push(
+          `Inconsistent cost period: Program "${prog.id}" has yearly cost ${prog.cost.amount} differing from tuitionPerYear ${prog.tuitionPerYear}`
+        );
+      }
+      if (
+        prog.cost.period !== 'year' &&
+        prog.cost.amount !== null &&
+        prog.tuitionPerYear !== null &&
+        prog.cost.amount === prog.tuitionPerYear
+      ) {
+        errors.push(
+          `Inconsistent cost period: Program "${prog.id}" has period "${prog.cost.period}" but amount ${prog.cost.amount} equals tuitionPerYear`
+        );
+      }
+      validateEvidence(prog.cost.evidence, `Program "${prog.id}" cost`);
     }
+
+    validateEvidence(prog.evidence, `Program "${prog.id}"`);
+    validateEvidence(prog.budgetThreshold?.evidence, `Program "${prog.id}" budgetThreshold`);
+    validateEvidence(prog.paidThreshold?.evidence, `Program "${prog.id}" paidThreshold`);
   }
 
-  // 3. Check broken references: Events -> Institution
-  for (const ev of OPEN_DAY_EVENTS) {
+  // 3. Check Events: references & dates
+  for (const ev of events) {
     if (!instIdSet.has(ev.institutionId)) {
       errors.push(`Broken reference: Event "${ev.id}" references non-existent institutionId "${ev.institutionId}"`);
     }
+    if (!ev.date || typeof ev.date !== 'string' || ev.date.trim().length < 3) {
+      errors.push(`Invalid date: Event "${ev.id}" has invalid date "${ev.date}"`);
+    }
   }
 
-  // 4. Check broken references: Rankings -> Institution
-  for (const rank of RANKINGS) {
+  // 4. Check Articles: dates
+  for (const article of articles) {
+    if (!isValidIsoDate(article.date)) {
+      errors.push(`Invalid date: Article "${article.id}" has invalid date "${article.date}"`);
+    }
+  }
+
+  // 5. Check Rankings -> Institution
+  for (const rank of rankings) {
     if (!instIdSet.has(rank.institutionId)) {
       errors.push(`Broken reference: Ranking rank ${rank.rank} references non-existent institutionId "${rank.institutionId}"`);
     }
   }
 
-  // 5. Check broken references: Professions -> Programs
-  const progIdSet = new Set(PROGRAMS.map(p => p.id));
-  for (const prof of PROFESSIONS) {
+  // 6. Check Professions -> Programs
+  for (const prof of professions) {
     for (const progId of prof.relatedPrograms) {
-      // Check if it's an explicit program ID
-      if (progId.startsWith('p') && !progIdSet.has(progId)) {
-        warnings.push(`Warning: Profession "${prof.id}" references unverified programId "${progId}"`);
+      if (!progIdSet.has(progId)) {
+        errors.push(`Broken reference: Profession "${prof.id}" references non-existent programId "${progId}"`);
       }
     }
   }
 
-  // 6. Check Master Programs -> University
-  for (const mp of MASTER_PROGRAMS) {
+  // 7. Check Specialities -> Field
+  for (const spec of specialities) {
+    if (!domainIdSet.has(spec.fieldId)) {
+      errors.push(`Broken reference: Speciality "${spec.id}" references non-existent fieldId "${spec.fieldId}"`);
+    }
+  }
+
+  // 8. Check Master Programs -> University
+  for (const mp of masterPrograms) {
     if (!instIdSet.has(mp.universityId)) {
       warnings.push(`Master program "${mp.id}" references universityId "${mp.universityId}" not in main INSTITUTIONS list`);
     }

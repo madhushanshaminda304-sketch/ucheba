@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useParams, notFound } from 'next/navigation';
 import { useApp } from '@/lib/AppContext';
-import { INSTITUTIONS, PROGRAMS } from '@/lib/data';
+import { INSTITUTIONS, getProgramsByInstitutionId, getProfessionById } from '@/lib/data';
 import { 
   Award, 
   MapPin, 
@@ -36,14 +36,14 @@ export default function UniversityDetailPage() {
     notFound();
   }
 
-  const universityPrograms = PROGRAMS.filter(p => p.institutionId === inst.id);
+  const universityPrograms = getProgramsByInstitutionId(inst.id);
   const [activeTab, setActiveTab] = useState<'overview' | 'programs' | 'admission' | 'dormitory' | 'reviews'>('overview');
   const [programFilter, setProgramFilter] = useState<string>('all');
   const [reviewSent, setReviewSent] = useState(false);
   const [questionText, setQuestionText] = useState('');
 
-  const isFav = isFavorite(inst.id);
-  const isComp = isCompared(inst.id);
+  const isFav = isFavorite(inst.id, 'institution');
+  const isComp = isCompared(inst.id, 'institution');
 
   const filteredPrograms = universityPrograms.filter(p => {
     if (programFilter === 'all') return true;
@@ -102,7 +102,7 @@ export default function UniversityDetailPage() {
             {/* Actions */}
             <div className="flex items-center gap-2.5 shrink-0">
               <button
-                onClick={() => toggleCompare(inst.id)}
+                onClick={() => toggleCompare({ type: 'institution', id: inst.id, title: inst.name, subtitle: `${inst.city} • Вуз` }, inst.abbreviation)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-bold transition-all ${
                   isComp 
                     ? 'bg-brand-50 border-brand-300 text-brand-700 shadow-sm' 
@@ -114,7 +114,7 @@ export default function UniversityDetailPage() {
               </button>
 
               <button
-                onClick={() => toggleFavorite(inst.id)}
+                onClick={() => toggleFavorite({ type: 'institution', id: inst.id, title: inst.name, subtitle: `${inst.city} • Вуз` }, inst.abbreviation)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-bold transition-all ${
                   isFav 
                     ? 'bg-rose-50 border-rose-300 text-rose-600 shadow-sm' 
@@ -399,8 +399,18 @@ export default function UniversityDetailPage() {
 
                     <div className="flex items-center justify-between pt-2">
                       <div className="text-xs text-slate-500">
-                        <strong>Кем работать:</strong> {prog.careers.join(', ')}
+                        <strong>Кем работать:</strong>{' '}
+                        {prog.careers.length > 0
+                          ? prog.careers.map(cId => getProfessionById(cId)?.title ?? cId).join(', ')
+                          : 'Уточняется в описании профиля'}
                       </div>
+                      <Link
+                        href={`/program/${prog.id}`}
+                        className="text-xs font-bold text-brand-600 hover:text-brand-700 flex items-center gap-1 shrink-0"
+                      >
+                        <span>Подробнее</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
                     </div>
                   </div>
                 ))}

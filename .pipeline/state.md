@@ -100,3 +100,21 @@
 - [x] C7: Code review & integrity audit (0 errors, 0 warnings across all entities)
 - [x] C8: Changelog & wrap up (README & CHANGELOG updated)
 
+## Change 2026-11-13: Relational IDs, Evidence Completeness, Persistence Hardening & Integrity Tests
+- **Size**: M
+- **Types**: feature, bug, flow-bug
+- **Triage**:
+  1. Replace remaining freeform career/program strings with explicit IDs (`programs.ts`, `careers.ts`, `app/prof/[slug]/page.tsx`, `app/vuz/[id]/page.tsx`).
+  2. Complete programme-specific metadata (`campusAddress`, `cost`, `budgetThreshold`, `paidThreshold`, `evidence`) across all 10 programmes and display evidence/cost period on `app/program/[id]/page.tsx`.
+  3. Switch `app/profile/page.tsx` and `app/compare/page.tsx` + `components/ComparisonTray.tsx` to typed `SavedEntityRef` lookups, supporting both institutions and programmes in `/compare`.
+  4. Harden `lib/storage.ts` corrupt legacy JSON backup/recovery and surface `storageRecoveryNotice` globally in `components/Header.tsx`.
+  5. Expand `lib/data/integrity.ts` (invalid dates, inconsistent cost periods, zero-for-unknown, unbacked verified status, broken career/field references) and add `scripts/test_integrity_and_storage.ts` (11 suites).
+- [x] C1: Context & safety verified (`change/structured-data-foundation-audit`)
+- [x] C2: Baseline recorded (`tsc --noEmit` & `check:integrity` passed)
+- [x] C3: Implementation plan
+- [x] C4: Execute code upgrades
+- [x] C5: UI stress & mobile testing (responsive comparison table & header notice)
+- [x] C6: Verification & regression checks (`tsc --noEmit`, `check:integrity`, `test:integrity` passed)
+- [x] C7: Code review
+- [x] C8: Changelog & wrap up
+

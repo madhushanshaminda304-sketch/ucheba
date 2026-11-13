@@ -28,7 +28,7 @@ import {
 
 export default function Header() {
   const pathname = usePathname();
-  const { selectedCityName, setIsCityModalOpen, favorites, compared, user, setIsAuthModalOpen } = useApp();
+  const { selectedCityName, setIsCityModalOpen, favorites, compared, user, setIsAuthModalOpen, storageRecoveryNotice, dismissRecoveryNotice } = useApp();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
@@ -49,6 +49,19 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
+      {storageRecoveryNotice && (
+        <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-xs text-amber-900">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <span className="font-medium">{storageRecoveryNotice}</span>
+            <button
+              onClick={dismissRecoveryNotice}
+              className="text-amber-800 hover:text-amber-950 font-bold underline shrink-0"
+            >
+              Скрыть
+            </button>
+          </div>
+        </div>
+      )}
       {/* Top tier */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
